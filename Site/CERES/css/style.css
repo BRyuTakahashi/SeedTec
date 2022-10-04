@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
 
 ::-webkit-scrollbar{
@@ -113,13 +113,12 @@ a{
     font-weight: 300;
     text-decoration: none;
     color: #FFF0A6;
-    transition: color .3s linear;
+    transition: .2s linear;
 }
 
 a:hover{
-    font-weight: 400;
+    font-weight: 500;
     color: #fff6c9;
-    transition: color 3s linear;
 }
 
 .bar{
@@ -197,7 +196,6 @@ a:hover .bar{
     padding-top: 1.5rem;
     display: flex;
     width: 320px;
-    justify-content: space-between;
 }
 
 .button button{
@@ -205,28 +203,30 @@ a:hover .bar{
     padding: 10px;
     border-radius: 5px;
     background-color: #61B954;
+    position: relative;
     box-shadow: 5px 5px 0 black;
     transition: all .1s ease-in;
-    width: 180px;
+    width: 150px;
 }
 
 #more{
     width: 120px;
+    left: 15px;
 }
 
 #more:hover{
-    width: 150px;
+    width: 130px;
 }
 
 .button button:hover{
-    width: 200px;
+    width: 160px;
     font-weight: 700;
     cursor: pointer;
     background-color: #49ae39;
 }
 
 #who{
-    padding: 1rem 0;
+    padding: 3rem 0;
     background-color: #D9D9D9;
 }
 
@@ -511,12 +511,12 @@ footer .container{
 }
 
 footer .container img{
-    width: 300px;
+    width: 200px;
     margin-bottom: 6rem;
 }
 
 footer .container img:hover{
-    width: 300px;
+    width: 200px;
     margin-bottom: 6rem;
 }
 
@@ -541,6 +541,10 @@ footer .container img:hover{
     font-size: 15px;
     font-weight: 200;
     margin-bottom: 10px;
+}
+
+.top h5 a{
+    transition: .1s linear;
 }
 
 .social{

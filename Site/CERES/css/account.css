@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    transition: all .2s ease-in-out;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #1F2B20;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #49ae39;
+}
+
+*{
+    font-family: Roboto Slab;
+    scroll-behavior: smooth;
+    user-select: none;
+    transition: .1s linear;
+}
+
+
+body{
+    font-family: Roboto Slab;
+    background-color: #1F2B20;
+    background-image: url("../img/logoBG.png");
+    background-repeat: no-repeat;
+    background-size: 600px;
+    
+}
+
+section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.account{
+    padding-left: 5rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.account img{
+    width: 200px;
+    margin-bottom: 5rem;
+    position: relative;
+    bottom: 0;
+}
+
+.account img:hover{
+    bottom: 3px;
+}
+
+h1{
+    font-size: 5vw;
+    font-weight: 700;
+    color: #FFF0A6;
+    margin-bottom: 2rem;
+}
+
+
+h2{
+    font-size: 2vw;
+    font-weight: 100;
+    color: #fffef7;
+    margin-bottom: 2rem;
+}
+
+.login{
+    color: #77dd67;
+    font-weight: 200;
+}
+
+
+a:hover{
+    color: #92f383;
+}
+
+.container{
+    padding-right: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
+}
+
+.plant{
+    background-color: #95ff85;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 90vh;
+    width: 20vw;
+    border-radius: 10px 0 10px 0;
+}
+
+.plant img{
+    position: relative;
+    right: 5vw;
+    width: 40vw;
+    transition: .5s ease-in-out;
+}
+
+.plant img:hover{
+    right: 7vw;
+}
+
+
+.button button{
+    font-family: Roboto Slab;
+    font-size: 18px;
+    padding: 10px;
+    margin: 0 2rem 2rem 0;
+    border-radius: 5px;
+    background-color: #61B954;
+    position: relative;
+    box-shadow: 5px 5px 0 black;
+    transition: all .1s ease-in;
+    width: 200px;
+}
+
+
+.button button:hover{
+    width: 210px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #49ae39;
+}

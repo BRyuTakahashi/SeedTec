@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>CERES</title>
@@ -21,7 +21,7 @@
                 <img src="./img/WOMAN_ANALYSE.png" alt="" id="mulher">
             </div>
         </div>
-            <form action="">
+            <form action="" onsubmit="validacao()">
                 <h1>Bem-vindo de volta</h1>
                 <div class="campo">
                     <label for="">Nome de usuário ou e-mail:</label>
@@ -40,5 +40,16 @@
     </section>
 
 </body>
-
 </html>
+<script>
+    function validacao(){
+        conta = in_conta.value
+        senha = in_senha.value
+
+        if (conta == 'admin' && senha == 'admin'){
+            window.location.replace("./index.html");
+        } else {
+            alert('Usuário não autenticado')
+        }
+    }
+</script>

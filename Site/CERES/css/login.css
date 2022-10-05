@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    transition: all .2s ease-in-out;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #1F2B20;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #49ae39;
+}
+
+*{
+    font-family: Roboto Slab;
+    scroll-behavior: smooth;
+    user-select: none;
+    transition: .1s linear;
+}
+
+
+body{
+    font-family: Roboto Slab;
+    background-color: #1F2B20;
+    background-image: url("../img/logoBG.png");
+    background-repeat: no-repeat;
+    background-size: 600px;
+    
+}
+
+section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.imgs {
+    width: 60%;
+}
+
+.ceres {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    padding-left: 4rem;
+}
+
+a {
+    width: 30%;
+}
+
+.ceres #logo{
+    width: 200px;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
+}
+
+.ceres #mulher{
+    width: 600px;
+}
+
+#mulher:hover{
+    width: 613px;
+}
+
+form {
+    background: #BEDFB9;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px 2px 50px 2px;
+    padding: 2rem 0 2rem 0;
+    margin: 4rem;
+    height: 450px;
+}
+
+form h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #1F2B20;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    width: 80%;
+}
+
+label {
+    color:#085007;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: .8rem;
+    margin-bottom: .3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+input{
+    padding: .8rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 90%;
+    margin: 0 1rem 0 0;
+    padding-left: 25px;
+}
+
+.esqueceu {
+    width: 80%;
+    text-decoration: none;
+    color: #59A74D;
+    margin: 1rem 0;
+}
+
+.esqueceu:hover {
+    color: #3a6b33;
+    text-decoration: underline;
+}
+
+button {
+    padding: .8rem;
+    background-color: #59A74D;
+    width: 60%;
+    color: white;
+    margin-bottom: 1rem;
+    border: 3px solid black;
+    box-shadow: 5px 5px 3px black;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+span {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 79%;
+}
+
+.registro {
+    text-decoration: none;
+    color: #59A74D;
+    margin: 0 0 0 5px;
+}
+
+.registro:hover{
+    color: #3a6b33;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+i {
+    position: absolute;
+    padding: 3rem 0 0 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}

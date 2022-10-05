@@ -35,102 +35,130 @@ section{
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-}
-
-.account{
-    padding-left: 5rem;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-}
-
-.account img{
-    width: 200px;
-    margin-bottom: 5rem;
-    position: relative;
-    bottom: 0;
-}
-
-.account img:hover{
-    bottom: 3px;
-}
-
-h1{
-    font-size: 5vw;
-    font-weight: 700;
-    color: #FFF0A6;
-    margin-bottom: 2rem;
-}
-
-
-h2{
-    font-size: 2vw;
-    font-weight: 100;
-    color: #fffef7;
-    margin-bottom: 2rem;
-}
-
-.login{
-    color: #77dd67;
-    font-weight: 200;
-}
-
-
-a:hover{
-    color: #92f383;
-}
-
-.container{
-    padding-right: 2rem;
     height: 100vh;
+}
+
+.imgs {
+    width: 60%;
+}
+
+.ceres {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: end;
+    justify-content: flex-end;
+    height: 100vh;
+    padding-left: 4rem;
 }
 
-.plant{
-    background-color: #95ff85;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    height: 90vh;
-    width: 20vw;
-    border-radius: 10px 0 10px 0;
+a {
+    width: 30%;
 }
 
-.plant img{
-    position: relative;
-    right: 5vw;
-    width: 40vw;
-    transition: .5s ease-in-out;
-}
-
-.plant img:hover{
-    right: 7vw;
-}
-
-
-.button button{
-    font-family: Roboto Slab;
-    font-size: 18px;
-    padding: 10px;
-    margin: 0 2rem 2rem 0;
-    border-radius: 5px;
-    background-color: #61B954;
-    position: relative;
-    box-shadow: 5px 5px 0 black;
-    transition: all .1s ease-in;
+.ceres #logo{
     width: 200px;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
 }
 
+.ceres #mulher{
+    width: 600px;
+}
 
-.button button:hover{
-    width: 210px;
+form {
+    background: #BEDFB9;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px 2px 50px 2px;
+    padding: 2rem 0 2rem 0;
+    margin: 4rem;
+    height: 450px;
+}
+
+form h1 {
+    font-size: 30px;
+    text-transform: uppercase;
     font-weight: 700;
-    cursor: pointer;
-    background-color: #49ae39;
+    margin-bottom: 3rem;
+    color: #1F2B20;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    width: 80%;
+}
+
+label {
+    color:#085007;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: .8rem;
+    margin-bottom: .3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+input{
+    padding: .8rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 90%;
+    margin: 0 1rem 0 0;
+    padding-left: 25px;
+}
+
+.esqueceu {
+    width: 80%;
+    text-decoration: none;
+    color: #59A74D;
+    margin: 1rem 0;
+}
+
+.esqueceu:hover {
+    color: #3a6b33;
+    text-decoration: underline;
+}
+
+button {
+    padding: .8rem;
+    background-color: #59A74D;
+    width: 60%;
+    color: white;
+    margin-bottom: 1rem;
+    border: 3px solid black;
+    box-shadow: 5px 5px 3px black;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+span {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 79%;
+}
+
+.registro {
+    text-decoration: none;
+    color: #59A74D;
+    margin: 0 0 0 5px;
+}
+
+.registro:hover{
+    color: #3a6b33;
+    text-decoration: underline;
+}
+
+i {
+    position: absolute;
+    padding: 3rem 0 0 5px;
 }

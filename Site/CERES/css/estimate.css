@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    transition: all .2s ease-in-out;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #1F2B20;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #49ae39;
+}
+
+*{
+    scroll-behavior: smooth;
+    user-select: none;
+    transition: .1s linear;
+}
+
+
+body{
+    font-family: Oswald;
+    background-color: #1F2B20;
+    background-image: url("../img/logoBG.png");
+    background-repeat: no-repeat;
+    background-size: 600px;
+    
+}
+
+#section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+    opacity: 0;
+    transition: .1s linear;
+}
+
+
+
+.imgs {
+    width: 60%;
+}
+
+.ceres{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    padding-left: 4rem;
+}
+
+.ceres #logo{
+    position: relative;
+    bottom: 0;
+    width: 200px;
+}
+
+.ceres #logo:hover{
+    bottom: 5px;
+}
+
+.ceres a{
+    width: 30%;
+    margin: 4rem;
+}
+
+.ceres #mulher{
+    position: relative;
+    width: 600px;
+    
+}
+
+
+.boxes{
+    width: 0%;
+    background-color: #3b573d;
+    padding: 2rem;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: .5s ease-in-out;
+}
+
+.box{
+    margin: 1rem;
+    background-color: #49ae39;
+    padding: 2rem;
+    min-width: 50px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+    height: 80px;
+    transition: all .2s linear;
+}
+
+.box .title{
+    color: #1F2B20;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.box .value{
+    font-size: 40px;
+    font-weight: 700;
+    color: #1F2B20;
+    transition: .1s linear;
+}
+
+.box:hover{
+    bottom: 5px;
+    background-color: #5cbd4d;
+}
+
+.box:hover .value{
+    color: #111c12;
+}
+
+.example{
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: auto;
+    padding: .8rem;
+    background-color: #61B954;
+    width: 20%;
+    margin: 2rem 0;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0 black;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: .2s linear;
+}
+
+button:hover{
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #49ae39;
+}
+
+#add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    border: .5px solid black;
+    box-shadow: 0 0 0 0 ;
+}
+
+.estimate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

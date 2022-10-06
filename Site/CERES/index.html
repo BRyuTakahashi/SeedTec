@@ -23,7 +23,7 @@
                         <li><a href="#">Serviço<br><div class="bar"></div></a></li>
                         <li><a href="#team">Equipe<br><div class="bar"></div></a></li>
                         <li><a href="#">Orçamento<br><div class="bar"></div></a></li>
-                        <li><a href="createAccount.html"><img id="icon_login" src="img/LOGINicon.png" alt="login" onmouseover="change()" onmouseout="restore()"></li></a>
+                        <li><a href="login.html"><img id="icon_login" src="img/LOGINicon.png" alt="login" onmouseover="change()" onmouseout="restore()"></li></a>
                     </ul>
                 </div>
             </div>
@@ -269,7 +269,7 @@
 <script>
     window.addEventListener("scroll", function(){
         var header = document.querySelector("header")
-        header.classList.toggle("sticky", window.scrollY > 100)
+        header.classList.toggle("sticky", window.scrollY > 10)
     })
     function change(){
         icon_login.src = "img/iconAltered.png"

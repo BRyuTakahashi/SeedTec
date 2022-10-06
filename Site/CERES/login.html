@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>CERES</title>
 </head>
 
@@ -21,35 +21,22 @@
                 <img src="./img/WOMAN_ANALYSE.png" alt="" id="mulher">
             </div>
         </div>
-            <form action="" onsubmit="validacao()">
+            <form action="dashboard.html">
                 <h1>Bem-vindo de volta</h1>
                 <div class="campo">
                     <label for="">Nome de usuário ou e-mail:</label>
-                    <input type="text" id="in_conta">
-                    <i class="fa fa-user-circle-o icon"></i>
+                    <input id="in_user" type="text" placeholder="ceres@seeddashboard.com">
                 </div>
                 <div class="campo">
                     <label for="in_senha">Senha:</label>
                     <input type="password" id="in_senha" placeholder="*******">
-                    <i class="fa fa-lock icon"></i>
-                    <a href="" class="esqueceu">Esqueceu a senha?</a>
+                    <a href="">Esqueceu a senha?</a>
                 </div>
                 <button>Entrar</button>
-                <span>Ainda não é cadastrado?<a href="" class="registro">Registre-se</a></span>
+                <span>Ainda não é cadastrado? <a href="" class="registro">Registre-se</a></span>
             </form>
     </section>
 
 </body>
-</html>
-<script>
-    function validacao(){
-        conta = in_conta.value
-        senha = in_senha.value
 
-        if (conta == 'admin' && senha == 'admin'){
-            window.location.replace("./index.html");
-        } else {
-            alert('Usuário não autenticado')
-        }
-    }
-</script>
+</html>

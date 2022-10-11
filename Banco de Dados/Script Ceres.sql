@@ -10,6 +10,7 @@ username varchar(45),
 dtnasc date,
 ddd char(2),
 telefone varchar(9),
+CPF char(14) unique,
 primary key (idUser)
 );
 

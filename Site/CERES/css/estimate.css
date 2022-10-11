@@ -27,7 +27,7 @@ body{
     background-color: #1F2B20;
     background-image: url("../img/logoBG.png");
     background-repeat: no-repeat;
-    background-size: 600px;
+    background-size: 850px;
     
 }
 
@@ -36,48 +36,38 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     width: 90%;
     margin: auto;
     opacity: 0;
     transition: .1s linear;
 }
 
-
-
-.imgs {
-    width: 60%;
-}
-
 .ceres{
+    margin: 4rem auto;
+    width: 200px;
+    padding: 1.2rem .5rem;
+    border-radius: 5px;
+    background-color: #3b573d;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 100vh;
-    padding-left: 4rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ceres h1{
+    font-family: Roboto Slab;
+    color: #132511;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
 .ceres #logo{
-    position: relative;
-    bottom: 0;
-    width: 200px;
+    margin-bottom: .8rem;
+    width: 150px;
 }
-
-.ceres #logo:hover{
-    bottom: 5px;
-}
-
-.ceres a{
-    width: 30%;
-    margin: 4rem;
-}
-
-.ceres #mulher{
-    position: relative;
-    width: 600px;
-    
-}
-
 
 .boxes{
     width: 0%;
@@ -85,6 +75,7 @@ body{
     padding: 2rem;
     border-radius: 2px;
     display: flex;
+    margin-bottom: 6rem;
     justify-content: space-around;
     align-items: center;
     transition: .5s ease-in-out;
@@ -132,7 +123,6 @@ body{
 }
 
 .example{
-    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,16 +130,17 @@ body{
 }
 
 button {
+    font-family: Roboto Slab;
     margin: auto;
     padding: .8rem;
     background-color: #61B954;
-    width: 20%;
-    margin: 2rem 0;
+    width: 200px;
+    margin: 2rem 0 0 0;
     border: 2px solid black;
     box-shadow: 5px 5px 0 black;
     border-radius: 10px;
     font-size: 20px;
-    transition: .2s linear;
+    transition: .1s ease;
 }
 
 button:hover{
@@ -159,19 +150,93 @@ button:hover{
 }
 
 #add{
+    opacity: 100;
+    background-color: #3b573d;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     outline: 0;
-    width: 50px;
+    width: 250px;
+    margin-bottom: 2rem;
     height: 50px;
-    border: .5px solid black;
+    color: #49ae39;
+    border: 1px solid  #49ae39;
     box-shadow: 0 0 0 0 ;
 }
 
+#add:hover{
+    color: rgb(197, 255, 204);
+    background-color: #2f4831;
+}
+
 .estimate{
+    width: 63%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: #3b573d;
+    font-family: Roboto Slab;
+    font-size: 30px;
+    font-weight: 700;
+    color: #49ae39;
+}
+
+
+#field{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+.content-campo{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.campo{
+    max-height: 20vh;
+    display: flex;
+    justify-content: center;
+    margin: .1rem;
+    width: 20%;
+}
+
+.campo label{
+    color: #99ff89;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+input, select{
+    color: #e4ffe0;
+    background-color: #4c6c4e;
+    width: 150px;
+    font-family: Roboto Slab;
+    padding: .8rem;
+    margin: .5rem;
+    border-radius: 2px;
+    border: none;
+    outline: 0px solid #49ae3900;
+    transition: .1s ease;
+}
+
+input{
+    text-align: center;
+    width: 40%;
+}
+
+input::placeholder{
+    color: #abbba8;
+}
+
+input:focus, select:focus{
+    outline: 1px solid #49ae39;
+}
+
+

@@ -15,14 +15,14 @@
     <div id="home">
         <header class="sticky">
             <div class="container">
-                <a href="index.html"><img src="img/LOGO.png" alt=""></a>
+                <a href="#home"><img src="img/LOGO.png" alt=""></a>
                 <div class="navbar">
                     <ul>
                         <li><a href="#home">Home<br><div class="bar"></div></a></li>
                         <li><a href="#who">Quem Somos<br><div class="bar"></div></a></li>
                         <li><a href="#">Serviço<br><div class="bar"></div></a></li>
                         <li><a href="#team">Equipe<br><div class="bar"></div></a></li>
-                        <li><a href="#">Orçamento<br><div class="bar"></div></a></li>
+                        <li><a href="estimate.html">Orçamento<br><div class="bar"></div></a></li>
                         <li><a href="login.html"><img id="icon_login" src="img/LOGINicon.png" alt="login" onmouseover="change()" onmouseout="restore()"></li></a>
                     </ul>
                 </div>
@@ -37,7 +37,7 @@
                     <h1 class="txt">Ajudando as suas sementes a resistirem</h1>
                     <span class="txt">Faça já sua simulação</span>
                     <div class="button">
-                        <a href=""><button>Fazer simulação</button></a>
+                        <a href="estimate.html"><button>Fazer simulação</button></a>
                         <a href="#iOT"><button id="more">Saiba mais</button></a>
                     </div>
                 </div>
@@ -271,6 +271,7 @@
         var header = document.querySelector("header")
         header.classList.toggle("sticky", window.scrollY > 10)
     })
+    
     function change(){
         icon_login.src = "img/iconAltered.png"
     }

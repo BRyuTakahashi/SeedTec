@@ -70,7 +70,13 @@ section{
 .ceres #mulher{
     position: relative;
     width: 600px;
+    left: 0;
+    transition: .5s ease;
     
+}
+
+.ceres #mulher:hover{
+    left: 10px;
 }
 
 form {
@@ -108,7 +114,7 @@ form h1 {
 }
 
 
-label {
+label{
     color:#085007;
     font-size: 16px;
     font-weight: 400;
@@ -118,12 +124,18 @@ label {
 }
 
 input{
+    background-color: #d1f8cb;
     padding: .8rem;
     border-radius: 5px;
     border: none;
-    outline: none;
     width: 90%;
     margin-bottom: 1rem;
+    outline: 0px solid rgba(255, 255, 255, 0);
+    transition: .2s ease;
+}
+
+input:focus{
+    outline: 1px solid #49ae39;
 }
 
 a{

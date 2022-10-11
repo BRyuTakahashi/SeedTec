@@ -21,7 +21,7 @@
                 <img src="./img/WOMAN_ANALYSE.png" alt="" id="mulher">
             </div>
         </div>
-            <form action="dashboard.html">
+            <form action="">
                 <h1>Bem-vindo de volta</h1>
                 <div class="campo">
                     <label for="">Nome de usuário ou e-mail:</label>
@@ -32,11 +32,24 @@
                     <input type="password" id="in_senha" placeholder="*******">
                     <a href="">Esqueceu a senha?</a>
                 </div>
-                <button>Entrar</button>
-                <span>Ainda não é cadastrado? <a href="" class="registro">Registre-se</a></span>
+                <button onclick="login()">Entrar</button>
+                <span>Ainda não é cadastrado? <a href="createAccount.html" class="registro">Registre-se</a></span>
             </form>
     </section>
 
 </body>
 
 </html>
+
+<script>
+    function login(){
+        var user = in_user.value
+        var senha = in_senha.value
+
+        if(user == "CERESadmin" && senha == "1234"){
+            window.open ('dashboard.html')
+        } else{
+            alert("⚠ Usuário ou senha incorretos!")
+        }
+    }
+</script>

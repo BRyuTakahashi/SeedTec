@@ -23,6 +23,7 @@
 
 
 body{
+    overflow: hidden;
     font-family: Roboto Slab;
     background-color: #1F2B20;
     background-image: url("../img/logoBG.png");

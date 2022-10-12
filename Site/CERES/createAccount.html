@@ -19,8 +19,8 @@
             <h1>Novo por aqui?</h1>
             <h2>Crie sua conta agora mesmo</h2>
             <div class="button">
-                <button>Produtor autônomo</button>
-                <button>Empresa</button>
+                <button onclick="signup()">Produtor autônomo</button>
+                <button onclick="signup()">Empresa</button>
             </div>
             <span class="login">Já tem uma conta? <a href="login.html">Faça login</a></span>
         </div>
@@ -31,7 +31,11 @@
             </div>
         </div>
     </section>
-
 </body>
-
 </html>
+
+<script>
+    function signup(){
+        window.location.href = "cadastro.html"
+    }
+</script>

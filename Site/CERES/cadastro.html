@@ -21,6 +21,7 @@
 
     <section>
         <form action="">
+            <br>
             <h1>CADASTRO</h1>
             <div class="campos">
                 <div class="campo">
@@ -34,6 +35,16 @@
                 <div class="campo">
                     <label for="in_telefone">Telefone:</label>
                     <input type="tel" onkeydown="return maskTel(event)" id="in_telefone" placeholder="(99)99999-9999">
+                </div>
+            </div>
+            <div class="campos">
+                <div class="campo">
+                    <label for="in_cep">CEP:</label>
+                    <input type="text" id="in_cep" placeholder="XXX.XX-XXX">
+                </div>
+                <div class="campo">
+                    <label for="in_complemento">Complemento:</label>
+                    <input type="text" id="in_complemento" placeholder="99 A">
                 </div>
             </div>
             <div class="campos">
@@ -108,6 +119,8 @@
         }
     }
 
+    
+
     function maskCNPJ(event) {
         let tecla = event.key;
         let cnpj = event.target.value.replace(/\D+/g, "");
@@ -136,5 +149,24 @@
         if (!["Backspace", "Delete"].includes(tecla)) {
             return false;
         }
+    }
+
+    function test() {
+        var nome = in_nome.value
+        var cnpj = in_cnpj.value
+        var telefone = in_telefone.value
+        var cep = in_cep.value
+        var comp = in_complemento.value
+        var email = in_email.value
+        var user = in_user.value
+        var senha = in_senha.value
+
+        if (nome == '' || cnpj == '' || telefone == '' || cep == '' || comp == '' || email == '' || user == '' || senha == '' ){
+            alert('Por favor, preencha todos os campos')
+        } else {
+            alert(`Usuário cadastrado com sucesso 🌱`)
+        window.open ('login.html')
+        }
+        
     }
 </script>

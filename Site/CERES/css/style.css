@@ -526,7 +526,12 @@ footer .container img:hover{
 }
 
 .top{
+    width: 25%;
     text-align: left;
+}
+
+.top a:focus .social-icon{
+    background-color: #FFF;
 }
 
 .top h1{

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceres Board</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="index.js">
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <img src="./images/ICON_BLACK.png">
+                <h2>Ceres <span class="danger">Board</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">
+                    close
+                </span>
+            </div>
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a><a href="#">
+                    <span class="material-icons-sharp">
+                        insights
+                    </span>
+                    <h3>Analytics</h3>
+                </a><a href="#" class="active">
+                    <span class="material-icons-sharp">
+                        report
+                    </span>
+                    <h3>Reports</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        mail_outline
+                    </span>
+                    <h3>Mensagens</h3>
+                    <span class="message-count">5</span>
+                </a><a href="#">
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>Adicionar Armazém</h3>
+                </a><a href="#">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Log Out</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Dashboard</h1>
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+
+                <!----- Inicio das sales ------>
+                <div class="sales">
+                    <span class="material-icons-sharp">
+                        analytics
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total de Vendas de Sacas</h3>
+                            <h1>R$13.000,34</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Ultimo mês</small>
+                </div>
+                <!------ Fim das Sales ------->
+
+                <!----- Inicio das expenses ------>
+                <div class="expenses">
+                    <span class="material-icons-sharp">
+                        bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total de Gastos</h3>
+                            <h1>R$14.300,00</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>62%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Ultimo mês</small>
+                </div>
+                <!------ Fim das Expenses ------->
+
+                <!---- Inicio da income ----->
+                <div class="income">
+                    <span class="material-icons-sharp">
+                        stacked_line_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total de Lucro</h3>
+                            <h1>R$25.000,00</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>72%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">ultimas 24 horas</small>
+                </div>
+                <!-- fim da income -->
+            </div>
+            <!-- fim das insights -->
+
+            <div class="recent-orders">
+                <h2>Armazéns</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>nome do armazém</th>
+                            <th>Código</th>
+                            <th>Monitoramento</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Armazém 1 - café</td>
+                            <td>85631</td>
+                            <td>Em dia</td>
+                            <td class="sucess">Tudo Certo</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                        <tr>
+                            <td>Armazém 2 - café</td>
+                            <td>74832</td>
+                            <td>Em dia</td>
+                            <td class="sucess">Tudo Certo</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                        <tr>
+                            <td>Armazém 1 - Cacau</td>
+                            <td>29173</td>
+                            <td>Em dia</td>
+                            <td class="sucess">Tudo Certo</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                        <tr>
+                            <td>Armazém 2 - Cacau</td>
+                            <td>17382</td>
+                            <td>Em dia</td>
+                            <td class="sucess">Tudo Certo</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                        <tr>
+                            <td>Armazém 1 - araucária</td>
+                            <td>12134</td>
+                            <td>Em dia</td>
+                            <td class="sucess">Tudo Certo</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#">Mostrar Tudo</a>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

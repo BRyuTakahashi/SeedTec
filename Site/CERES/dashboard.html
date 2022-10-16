@@ -8,15 +8,15 @@
     <title>Ceres Board</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="index.js">
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <div class="container">
         <aside>
             <div class="top">
-                <img src="./images/ICON_BLACK.png">
-                <h2>Ceres <span class="danger">Board</span></h2>
+                <img src="img/ceresBoard.png">
             </div>
             <div class="close" id="close-btn">
                 <span class="material-icons-sharp">
@@ -25,7 +25,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="#">
+                <a href="#" class="active">
                     <span class="material-icons-sharp">
                         dashboard
                     </span>
@@ -35,24 +35,14 @@
                         insights
                     </span>
                     <h3>Analytics</h3>
-                </a><a href="#" class="active">
+                </a><a href="#">
                     <span class="material-icons-sharp">
                         report
                     </span>
-                    <h3>Reports</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        mail_outline
-                    </span>
-                    <h3>Mensagens</h3>
+                    <h3>Avisos</h3>
                     <span class="message-count">5</span>
-                </a><a href="#">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>Adicionar Armazém</h3>
-                </a><a href="#">
+                </a>
+                </a><a id="logout" href="login.html">
                     <span class="material-icons-sharp">
                         logout
                     </span>
@@ -62,139 +52,210 @@
         </aside>
 
         <main>
-            <h1>Dashboard</h1>
-            <div class="date">
-                <input type="date">
+            <div class="kpi">
+                <div class="boxes">
+                    <div class="box">
+                        <h2>Temperatura máxima</h2>
+                        <h1>25ºC</h1>
+                        <span>15:00</span>
+                    </div>
+                    <div class="box">
+                        <h2>Umidade máxima</h2>
+                        <h1>18%</h1>
+                        <span>18:00</span>
+                    </div>
+                    <div class="box">
+                        <h2>Porcentagem de germinação</h2>
+                        <h1>85%</h1>
+                        <span>Café</span>
+                    </div>
+                    <div class="box">
+                        <h2></h2>
+                        <h1>18%</h1>
+                        <span>18:00</span>
+                    </div>
+                </div>
             </div>
-
             <div class="insights">
-
-                <!----- Inicio das sales ------>
                 <div class="sales">
-                    <span class="material-icons-sharp">
-                        analytics
-                    </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total de Vendas de Sacas</h3>
-                            <h1>R$13.000,34</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
-                        </div>
+                    <div>
+                        <canvas id="chartLine"></canvas>
                     </div>
-                    <small class="text-muted">Ultimo mês</small>
                 </div>
-                <!------ Fim das Sales ------->
 
-                <!----- Inicio das expenses ------>
                 <div class="expenses">
-                    <span class="material-icons-sharp">
-                        bar_chart
-                    </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total de Gastos</h3>
-                            <h1>R$14.300,00</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>62%</p>
-                            </div>
-                        </div>
+                    <div>
+                        <canvas id="chartBar"></canvas>
                     </div>
-                    <small class="text-muted">Ultimo mês</small>
                 </div>
-                <!------ Fim das Expenses ------->
 
-                <!---- Inicio da income ----->
                 <div class="income">
-                    <span class="material-icons-sharp">
-                        stacked_line_chart
-                    </span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Total de Lucro</h3>
-                            <h1>R$25.000,00</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>72%</p>
-                            </div>
-                        </div>
+                    <div>
+                        <canvas id="chartRadar"></canvas>
                     </div>
-                    <small class="text-muted">ultimas 24 horas</small>
                 </div>
-                <!-- fim da income -->
-            </div>
-            <!-- fim das insights -->
 
-            <div class="recent-orders">
-                <h2>Armazéns</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>nome do armazém</th>
-                            <th>Código</th>
-                            <th>Monitoramento</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Armazém 1 - café</td>
-                            <td>85631</td>
-                            <td>Em dia</td>
-                            <td class="sucess">Tudo Certo</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                        <tr>
-                            <td>Armazém 2 - café</td>
-                            <td>74832</td>
-                            <td>Em dia</td>
-                            <td class="sucess">Tudo Certo</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                        <tr>
-                            <td>Armazém 1 - Cacau</td>
-                            <td>29173</td>
-                            <td>Em dia</td>
-                            <td class="sucess">Tudo Certo</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                        <tr>
-                            <td>Armazém 2 - Cacau</td>
-                            <td>17382</td>
-                            <td>Em dia</td>
-                            <td class="sucess">Tudo Certo</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                        <tr>
-                            <td>Armazém 1 - araucária</td>
-                            <td>12134</td>
-                            <td>Em dia</td>
-                            <td class="sucess">Tudo Certo</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <a href="#">Mostrar Tudo</a>
+                <div class="income">
+                    <div>
+                        <canvas id="chartDonut"></canvas>
+                    </div>
+                </div>
+
             </div>
         </main>
     </div>
-
 </body>
 
 </html>
+<script>
+    const tempLabel = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        '18:00',
+
+    ];
+
+    const data = {
+        labels: tempLabel,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: '#49ae39',
+            borderColor: '#49ae39',
+            data: [7, 10, 12, 25, 7.8, 9, 11],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: '#FFF0A6',
+            borderColor: '#FFF0A6',
+            data: [14, 17, 16, 15, 14, 17, 18],
+        }
+        ]
+    };
+
+    const monthLabel = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+
+    ];
+
+    const dataBar = {
+        labels: monthLabel,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: '#49ae39',
+            borderColor: '#49ae39',
+            data: [8, 9, 7, 7, 7.8, 9, 8],
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: '#FFF0A6',
+            borderColor: '#FFF0A6',
+            data: [18, 15, 17, 17,5, 18, 17, 18],
+        }
+        ]
+    };
+
+    const data2 = {
+        labels: [
+            'Café',
+            'Cacau',
+            'Araucária',
+        ],
+        datasets: [{
+            label: 'Sacas por armazém',
+            data: [1500, 1200, 700],
+            backgroundColor: [
+                '#49ae39',
+                '#FFF0A6',
+                '#3991ae'
+            ]
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#fff'
+                    },
+                },
+
+            }
+        }
+    }
+
+    const config2 = {
+        type: 'bar',
+        data: dataBar,
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#fff'
+                    },
+                }
+            }
+        }
+    }
+
+    const config3 = {
+        type: 'polarArea',
+        data: data2,
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#fff'
+                    },
+                }
+            }
+        }
+    }
+    const config4 = {
+        type: 'doughnut',
+        data: data2,
+        options: {
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#fff'
+                    },
+                }
+            }
+        }
+    }
+</script>
+<script>
+    const lineChart = new Chart(
+        document.getElementById('chartLine'),
+        config
+    );
+    const barChart = new Chart(
+        document.getElementById('chartBar'),
+        config2
+    );
+    const radarChart = new Chart(
+        document.getElementById('chartRadar'),
+        config3
+    );
+    const donutChart = new Chart(
+        document.getElementById('chartDonut'),
+        config4
+    );
+</script>

@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/estimate.css">
-    <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/9729ff5aa8.js" crossorigin="anonymous"></script>
+    <script src="js/estimate.js"></script>
     <title>CERES</title>
 </head>
 
@@ -59,114 +60,3 @@
 </body>
 
 </html>
-
-<script>
-    var i = 0
-    var campo1 =  0
-    var campo2 =  0
-    var campo3 =  0
-    var saca1 = 0
-    var saca2 = 0
-    var saca3 = 0
-    var price1 = 0
-    var price2 = 0
-    var price3 = 0
-    var tipo1 = 0
-    var tipo2 = 0
-    var tipo3 = 0
-
-    function addInput() {
-        i += 1
-        if (i == 1) {
-            field.innerHTML += `
-            <div class="content-campo">
-                <div class="campo">
-                    <label>Tamanho em m²</label>
-                </div>
-                <div class="campo">
-                    <label>Sacas</label>
-                </div>
-                <div class="campo">
-                    <label>Valor saca</label>
-                </div>
-                <div class="campo">
-                    <label>Tipo</label>
-                </div>
-            </div>`
-            estimate.innerHTML += "<a href='#section'><button onclick='calcular()'>Calcular</button></a>"
-        }
-        if (i < 4) {
-            field.innerHTML += `
-            <div class="content-campo">
-                <div class="campo">
-                    <input id="in_campo${i}" type='text' placeholder='23m²'> 
-                </div>
-                <div class="campo">
-                    <input id="in_saca${i}" type='text' placeholder='58'> 
-                </div>
-                <div class="campo">
-                    <input id='in_price${i}' type='text' placeholder='R$1400'> 
-                </div>
-                <div class="campo">
-                    <select id="sel_tipo${i}">
-                        <option value="n">Semente</option>
-                        <option value="ca">Café</option>
-                        <option value="ch">Cacau</option>
-                        <option value="ar">Araucária</option>
-                    </select>
-                </div>
-            </div>`
-        } 
-    }
-     
-    function calcular() {
-        
-        campo1 = Number(in_campo1.value)
-        saca1 = Number(in_saca1.value)
-        price1 = Number(in_price1.value)
-        tipo1 = sel_tipo1.value
-
-        if (i > 1) {
-            campo2 = Number(in_campo2.value)
-            saca2 = Number(in_saca2.value)
-            price2 = Number(in_price2.value)
-            tipo2 = sel_tipo2.value
-        }
-
-        if (i > 2) {
-            campo3 = Number(in_campo3.value)
-            saca3 = Number(in_saca3.value)
-            price3 = Number(in_price3.value)
-            tipo3 = sel_tipo3.value
-        }
-
-        if (tipo1 == "n" || tipo2 == "n" || tipo3 == "n") {
-            alert("Selecione o tipo de semente antes de prosseguir!")
-        } else if (campo1 <= 0 || i > 1 && campo2 <= 0 || i > 2 && campo3 <= 0) {
-            alert("Informe um tamanho válido para sua plantação")
-        } else if ((tipo1 == "ca" && price1 < 1000 || tipo1 == "ca" && price1 > 1500) || (tipo2 == "ca" && price2 < 1000 || tipo2 == "ca" && price2 > 1500) || (tipo3 == "ca" && price3 < 1000 || tipo3 == "ca" &&price3 > 1500)) {
-            alert("☕ Valor da saca de café fora da cotação da Cebrae/Eqal*")
-        } else if ((tipo1 == "ch" && price1 < 650 || tipo1 == "ch" && price1 > 900) || (tipo2 == "ch" && price2 < 650 || tipo2 == "ch" && price2 > 900) || (tipo3 == "ch" && price3 < 650 || tipo3 == "ch" &&price3 > 900)) {
-            alert("🍫 Valor da saca de cacau fora da cotação da Cebrae/Eqal")
-        } else if ((tipo1 == "ar" && price1 < 100 || tipo1 == "ar" && price1 > 500) || (tipo2 == "ar" && price2 < 100 || tipo2 == "ar" && price2 > 500) || (tipo3 == "ar" && price3 < 100 || tipo3 == "ar" &&price3 > 500)) {
-            alert("🌲 Valor da saca de araucária fora da cotação da Cebrae/Eqal")
-        } else if (saca1 < 50 || i > 1 && saca2 < 50 || i > 2 && saca3 < 50) {
-            alert("Sacas insuficientes para realizar a simulação")
-        } else {
-            section.style.opacity = "100"
-            boxes.style.width = "70%"
-            estimate.style.height = "60vh"
-        
-            var sensor = (campo1 + campo2 + campo3) / 15
-            var custo = sensor * 32 * 1.5 + 200
-            var saca = (saca1 + saca2 + saca3) * 0.35
-            var price = ((saca1 * price1) + (saca2 * price2) + (saca3 * price3)) - custo
-            t_sensor.innerHTML = Math.round(sensor)
-            t_custo.innerHTML = custo.toLocaleString('pt-br', { style: "currency", currency: "BRL" })
-            t_saca.innerHTML = Math.round(saca)
-            t_economy.innerHTML = price.toLocaleString('pt-br', { style: "currency", currency: "BRL" })
-        }
-
-    }
-
-</script>

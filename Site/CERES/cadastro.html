@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/sign.css">
-    <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
 
+    <script src="js/cadastro.js"></script>
     <title>CERES</title>
 </head>
 
 <body>
-    <div class="imagem">
-        <img src="img/LOGO.png" alt="" >
+
+    <!--LOGO-->
+    <div class="logo">
+        <img onclick="home()" src="img/LOGO.png" alt="">
     </div>
 
-
+    <!--FORMULÁRIO DE CADASTRO-->
     <section>
-        <form action="">
+        <div class="form">
             <br>
             <h1>CADASTRO</h1>
             <div class="campos">
@@ -30,33 +33,37 @@
                 </div>
                 <div class="campo">
                     <label for="in_cnpj">CNPJ:</label>
-                    <input type="text" onkeydown="return maskCNPJ(event)" id="in_cnpj" placeholder="XX.XXX.XXX/XXXX-XX">
+                    <input type="text" maxlength="18" id="in_cnpj" onkeydown="maskCNPJ()" placeholder="00.000.000/0000-00">
                 </div>
                 <div class="campo">
                     <label for="in_telefone">Telefone:</label>
-                    <input type="tel" onkeydown="return maskTel(event)" id="in_telefone" placeholder="(99)99999-9999">
+                    <input type="tel" onkeydown="return maskTel(event)" id="in_telefone" placeholder="(99) 99999-9999">
                 </div>
             </div>
+
             <div class="campos">
                 <div class="campo">
                     <label for="in_cep">CEP:</label>
-                    <input type="text" id="in_cep" placeholder="XXX.XX-XXX">
+                    <input type="text" maxlength="9" id="in_cep" onkeyup="maskCEP()" placeholder="XXXXX-XXX">
                 </div>
                 <div class="campo">
                     <label for="in_complemento">Complemento:</label>
-                    <input type="text" id="in_complemento" placeholder="99 A">
+                    <input type="text" id="in_complemento" placeholder="99A">
                 </div>
             </div>
+
             <div class="campos">
                 <div class="campo">
                     <label for="in_email">Email:</label>
-                    <input type="email" id="in_email" placeholder="ceres@seeddashboard.com">
+                    <input type="email" id="in_email" placeholder="ceres@seeddashboard.com" onkeydown="chkEmail()">
+                    <div id="errorE"></div>
                 </div>
                 <div class="campo">
                     <label for="in_user">Username:</label>
                     <input type="text" id="in_user" placeholder="ceres_seed">
                 </div>
             </div>
+
             <div class="campos">
                 <div class="campo">
                     <label for="in_senha">Senha:</label>
@@ -64,109 +71,16 @@
                 </div>
                 <div class="campo">
                     <label for="in_conf_senha">Confirmar senha:</label>
-                    <input type="password" id="in_conf_senha" placeholder="*******" onkeyup="confirmar()">
+                    <input type="password" id="in_conf_senha" placeholder="*******" onkeyup="chkPass()">
+                    <div id="error"></div>
                 </div>
             </div>
-            <button onclick="test()">Cadastrar</button>
-        </form>
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
     </section>
-   
+
 </body>
 
 </html>
 
-<script>
-    function confirmar() {
-        var s1 = in_senha.value
-        var s2 = in_conf_senha.value
 
-        if (s1 != s2) {
-            in_conf_senha.style.backgroundColor = '#751c1c'
-            in_conf_senha.style.outline = '1px solid  #db4d4d'
-        } else {
-            in_conf_senha.style.backgroundColor = '#d1f8cb'
-            in_conf_senha.style.outline = 'none'
-        }
-    }
-
-    function maskTel(event) {
-        let tecla = event.key;
-        let telefone = event.target.value.replace(/\D+/g, "");
-
-        if (/^[0-9]$/i.test(tecla)) {
-            telefone = telefone + tecla;
-            let tamanho = telefone.length;
-
-            if (tamanho >= 12) {
-                return false;
-            }
-            
-            if (tamanho > 10) {
-                telefone = telefone.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-            } else if (tamanho > 5) {
-                telefone = telefone.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-            } else if (tamanho > 2) {
-                telefone = telefone.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-            } else {
-                telefone = telefone.replace(/^(\d*)/, "($1");
-            }
-
-            event.target.value = telefone;
-        }
-
-        if (!["Backspace", "Delete"].includes(tecla)) {
-            return false;
-        }
-    }
-
-    
-
-    function maskCNPJ(event) {
-        let tecla = event.key;
-        let cnpj = event.target.value.replace(/\D+/g, "");
-
-        if (/^[0-9]$/i.test(tecla)) {
-            cnpj = cnpj + tecla;
-            let tamanho = cnpj.length;
-
-            if (cnpj >= 12) {
-                return false;
-            }
-            
-            if (tamanho > 13) {
-                cnpj = cnpj.replace(/^(\d\d)(\d{5})(\d{4}).*/, "$1.$2.$3");
-            } else if (tamanho > 5) {
-                cnpj = cnpj.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "$1.$2.$3");
-            } else if (tamanho > 2) {
-                cnpj = cnpj.replace(/^(\d\d)(\d{0,5})/, "$1.$2");
-            } else {
-                cnpj = cnpj.replace(/^(\d*)/, "$1.");
-            }
-
-            event.target.value = cnpj;
-        }
-
-        if (!["Backspace", "Delete"].includes(tecla)) {
-            return false;
-        }
-    }
-
-    function test() {
-        var nome = in_nome.value
-        var cnpj = in_cnpj.value
-        var telefone = in_telefone.value
-        var cep = in_cep.value
-        var comp = in_complemento.value
-        var email = in_email.value
-        var user = in_user.value
-        var senha = in_senha.value
-
-        if (nome == '' || cnpj == '' || telefone == '' || cep == '' || comp == '' || email == '' || user == '' || senha == '' ){
-            alert('Por favor, preencha todos os campos')
-        } else {
-            alert(`Usuário cadastrado com sucesso 🌱`)
-        window.open ('login.html')
-        }
-        
-    }
-</script>

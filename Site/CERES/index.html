@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
+    <script src="js/index.js"></script>
     <title>CERES</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
                     <ul>
                         <li><a href="#home">Home<br><div class="bar"></div></a></li>
                         <li><a href="#who">Quem Somos<br><div class="bar"></div></a></li>
-                        <li><a href="#">Serviço<br><div class="bar"></div></a></li>
+                        <li><a href="#service">Serviço<br><div class="bar"></div></a></li>
                         <li><a href="#team">Equipe<br><div class="bar"></div></a></li>
                         <li><a href="estimate.html">Orçamento<br><div class="bar"></div></a></li>
                         <li><a href="login.html"><img id="icon_login" src="img/LOGINicon.png" alt="login" onmouseover="change()" onmouseout="restore()"></li></a>
@@ -124,6 +125,29 @@
                     <h1>ARAUCÁRIA</h1>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVIÇO -->
+    <div id="service">
+        <div class="content">
+            <div class="infoS">
+                <img src="img/ceresBoard.png" alt="">
+                <p>
+                    Conheça agora seu principal aliado para o monitoramento de temperatura e umidade do seu armazém.
+                    <br>
+                    <br>
+                    Um eficaz sistema com gráficos integrados e análises técnicas automatizado, disponível através de uma dashboard intuitiva e moderna.
+                </p>
+                <div class="button">
+                    <a href="login.html">
+                        <button>Experimentar agora</button>
+                    </a>
+                </div>
+            </div>
+            <div class="mockupDash">
+                <img src="img/noteDash.png" alt="">
             </div>
         </div>
     </div>
@@ -265,20 +289,4 @@
         </div>
         <span class="copy">Todos os direitos reservados &copy; Copyright</span>
     </footer>
-
-
-<script>
-    window.addEventListener("scroll", function(){
-        var header = document.querySelector("header")
-        header.classList.toggle("sticky", window.scrollY > 10)
-    })
-    
-    function change(){
-        icon_login.src = "img/iconAltered.png"
-    }
-
-    function restore(){
-        icon_login.src = "img/LOGINicon.png"
-    }
-</script>
 

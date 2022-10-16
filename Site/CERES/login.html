@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="shortcut icon" href="green_logo.ico" type="image/x-icon">
-    
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
+    <script src="js/login.js"></script>
     <title>CERES</title>
 </head>
 
@@ -21,7 +20,7 @@
                 <img src="./img/WOMAN_ANALYSE.png" alt="" id="mulher">
             </div>
         </div>
-            <form action="">
+            <div class="form">
                 <h1>Bem-vindo de volta</h1>
                 <div class="campo">
                     <label for="">Nome de usuário ou e-mail:</label>
@@ -34,22 +33,9 @@
                 </div>
                 <button onclick="login()">Entrar</button>
                 <span>Ainda não é cadastrado? <a href="createAccount.html" class="registro">Registre-se</a></span>
-            </form>
+            </div>
     </section>
 
 </body>
 
 </html>
-
-<script>
-    function login(){
-        var user = in_user.value
-        var senha = in_senha.value
-
-        if(user == "CERESadmin" && senha == "1234"){
-            window.open ('dashboard.html')
-        } else{
-            alert("⚠ Usuário ou senha incorretos!")
-        }
-    }
-</script>

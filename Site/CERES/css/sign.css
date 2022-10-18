@@ -45,8 +45,16 @@ body{
    
 }
 
+#in_complemento{
+    width: 90px;
+}
+
+#in_telefone{
+    width: 140px;
+}
+
 .campo{
-    margin: 10px;
+    margin: .5rem;
 }
 
 input{

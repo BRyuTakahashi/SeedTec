@@ -123,7 +123,7 @@ label{
     justify-content: flex-start;
 }
 
-input{
+input, select{
     background-color: #d1f8cb;
     padding: .8rem;
     border-radius: 5px;

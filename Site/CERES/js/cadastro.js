@@ -92,6 +92,8 @@ function cadastrar() {
     var nome = in_nome.value
     var cnpj = in_cnpj.value
     var telefone = in_telefone.value
+    var estado = sel_estado.value
+    var cidade = in_cidade.value
     var cep = in_cep.value
     var comp = in_complemento.value
     var email = in_email.value
@@ -99,10 +101,10 @@ function cadastrar() {
     var s1 = in_senha.value
     var s2 = in_conf_senha.value
 
-    var invalidField = nome == '' || cnpj == '' || telefone == '' || cep == '' || comp == '' || email == '' || user == '' || s1 != s2
+    var invalidField = nome == '' || cnpj == '' || telefone == '' || estado == '' || cidade == '' || cep == '' || email == '' || user == '' || s1 != s2
 
     if (invalidField) {
-        alert('Por favor, preencha todos os campos')
+        alert('Por favor, preencha todos os campos obrigatórios')
     } else {
         alert(`Usuário cadastrado com sucesso 🌱`)
         window.location.href = 'login.html'

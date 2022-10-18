@@ -9,34 +9,29 @@ nome varchar(45),
 CNPJ char(14),
 ddd char(2),
 telefone varchar(9),
+estado varchar(45),
+cidade varchar(45),
 CEP char(8),
 complemento varchar(45),
-email varchar(60), constraint chkemail check (email like '%@%'),
+email varchar(60), 
 username varchar(45),
 senha varchar(30),
+constraint chkemail check (email like '%@%'),
+constraint chkestado check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
 primary key (idUser)
-);
-
-create table Especie(
-idEspecie int primary key auto_increment,
-nome varchar(45),
-temp_min decimal,
-temp_max decimal,
-umi_min decimal,
-umi_max decimal
 );
 
 create table Armazem(
 idArmazem int auto_increment,
 tamanho int,
+especie varchar(45),
 estado char(2),
 cidade varchar(45),
-bairro varchar(45),
+CEP char(8),
 fkUser int,
-fkEspecie int,
-constraint chkestado check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
+constraint chkestado2 check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
+constraint chkespecie check (especie in ('Café','Araucária','Cacau')),
 constraint fkusuario foreign key (fkUser) references Usuario(idUser),
-constraint fkespecie foreign key (fkEspecie) references Especie(idEspecie),
 primary key (idArmazem)
 );
 
@@ -58,21 +53,17 @@ primary key (idMetrica, fkSensor)
 );
 
 -- INSERTS
-insert into Usuario (nome, CNPJ, ddd, telefone, CEP, complemento, email, username, senha) values
-('Ceres Seed', '12345678901234', '11', '999999999', '01234567', null, 'ceres@seeddashboard.com', 'CERESadmin', '1234');
+insert into Usuario (nome, CNPJ, ddd, telefone, estado, cidade, CEP, complemento, email, username, senha) values
+('Ceres Seed', '12345678901234', '11', '999999999', 'SP', 'São Paulo' , '01234567', null, 'ceres@seeddashboard.com', 'CERESadmin', '1234');
 
-insert into especie (nome, temp_min, temp_max, umi_min, umi_max) values
-('Espécie 1', 10.0, 15.0, 15.0, 20.0),
-('Espécie 2', 5.0, 20.0, 10.0, 25.0);
-
-insert into armazem (tamanho, estado, cidade, bairro, fkuser, fkespecie) values
-(20, 'SP','São Paulo','Bela Vista',1,1),
-(29, 'RJ','Rio de Janeiro','Rocinha',1,2),
-(8, 'MG','Extrema','Agenor',1,1),
-(33, 'SC','Florianópolis','Centro',1,2),
-(32, 'MT','Juína','Filadélfia',1,2),
-(21, 'AC','Rio Branco','Ayrton Senna',1,1),
-(37, 'RO','Porto Velho','Eldorado',1,2);
+insert into armazem (tamanho, especie, estado, cidade, CEP, fkuser) values
+(20, 'Café', 'SP','São Paulo','11111111',1),
+(29, 'Café', 'RJ','Rio de Janeiro','22222222',1),
+(8, 'Cacau',  'MG','Extrema','33333333',1),
+(33, 'Araucária', 'SC','Florianópolis','44444444',1),
+(32, 'Café', 'MT','Juína','55555555',1),
+(21, 'Cacau', 'AC','Rio Branco','66666666',1),
+(37, 'Araucária', 'RO','Porto Velho','77777777',1);
 
 insert into DHT11 (fkArmazem) values
 (1), (1), (2), (2), (3), (4), (4), (5), (5), (6), (6), (7), (7), (7);
@@ -108,14 +99,12 @@ insert into metrica (idMetrica, temperatura, umidade, fksensor) values
 
 -- SELECT
 
-select m.horario, m.temperatura, m.umidade, s.idSensor, a.estado, a.cidade, e.nome, u.nome, u.username, u.email from Metrica as m
+select m.horario, m.temperatura, m.umidade, a.especie, a.estado, a.cidade, u.nome, u.CNPJ, u.email from Metrica as m
 	join DHT11 as s on m.fkSensor = s.idSensor
     join Armazem as a on a.idArmazem = s.fkArmazem
-    join Especie as e on e.idEspecie = a.fkEspecie
     join Usuario as u on u.idUser = a.fkUser;
     
     select * from Metrica as m
 	join DHT11 as s on m.fkSensor = s.idSensor
     join Armazem as a on a.idArmazem = s.fkArmazem
-    join Especie as e on e.idEspecie = a.fkEspecie
     join Usuario as u on u.idUser = a.fkUser;

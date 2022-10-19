@@ -114,11 +114,11 @@ function calcular() {
     } else if (noSize) {
         alert("Informe um tamanho válido para o seu armazém")
     } else if (coffePrice) {
-        alert("☕ Valor da saca de café fora da cotação da Cebrae/Eqal*")
+        alert("☕ Valor da saca de café fora da cotação da Cepea/Esalq")
     } else if (cocoaPrice) {
-        alert("🍫 Valor da saca de cacau fora da cotação da Cebrae/Eqal")
+        alert("🍫 Valor da saca de cacau fora da cotação da Cepea/Esalq")
     } else if (arauPrice) {
-        alert("🌲 Valor da saca de araucária fora da cotação da Cebrae/Eqal")
+        alert("🌲 Valor da saca de araucária fora da cotação da Cepea/Esalq")
     } else if (saca1 < 50 || i > 1 && saca2 < 50 || i > 2 && saca3 < 50) {
         alert("Sacas insuficientes para realizar a simulação")
     } else {

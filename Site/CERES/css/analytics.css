@@ -1,3 +1,7 @@
+main{
+    width: 1050px;
+}
+
 .kpi{
     display: flex;
     flex-direction: column;
@@ -5,39 +9,20 @@
     justify-content: center;
     text-align: center;
     width: 100%;
-
-    
 }
 
-main{
-    width: 1050px;
-}
-.atencao{
-    background: #d8e750;
-}
-.atencao:hover{
-    background:#bfcc48;
-}
-.perigo{
-    background: #ff4800;
-}
-.perigo:hover{
-    background: #f04501;
-}
-.ideal:hover{
-    background: #31ad3b;
-}
 .box{
-    width: 10rem;
+    width: 150px;
 }
+
 .boxes{
-    
-    grid-template-columns: repeat(5,1fr);
-    margin-left: 6rem;
-    margin-bottom: 5rem;
+    display: flex;
+    width: 90%;
+    height: 200px;
+    transition: .2s linear;
 }
+
 .kpi h2{
-    
-    margin: auto;
-    padding: 2rem;
+    margin: 2rem 0 1rem 0;
 }
+

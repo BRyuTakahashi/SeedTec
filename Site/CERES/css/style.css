@@ -401,7 +401,7 @@ a:hover .bar{
 /*SERVICE*/
 #service{
     background-color: #0f1410;
-    padding: 6rem 0 4rem;
+    padding: 5rem 0 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

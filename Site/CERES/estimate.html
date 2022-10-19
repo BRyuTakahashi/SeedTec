@@ -13,7 +13,7 @@
     <title>CERES</title>
 </head>
 
-<body>
+<body id="body">
     <div class="ceres">
         <a href="index.html"><img id="logo" src="img/LOGO.png" alt=""></a>
         <h1>ORÇAMENTO</h1>
@@ -22,7 +22,17 @@
     <div class="container">
         <div id="estimate" class="estimate">
             <h1>Quantos armazéns você possui?</h1>
-            <button onclick="addInput()" id="add"><i class="fa-regular fa-plus"></i> Adicionar armazém</button>
+            <div class="addOn">
+                <button onclick="addInput()" class="add" id="add">
+                    <i class="fa-regular fa-plus"></i>
+                    Adicionar armazém
+                </button>
+                <a href="#body">
+                    <button onclick="refresh()" class="add refresh">
+                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                    </button>
+                </a>
+            </div>
             <!--
                 ** Adicionar na função addInput()
                 INPUTS: Tamanho, Sacas, Valor da saca
@@ -31,25 +41,27 @@
 
             <!--INPUTs-->
             <div id="field"></div>
+            <div id="insertButton"></div>
+
         </div>
     </div>
 
     <!--BOXES ORÇAMENTO-->
     <section id="section">
         <div id="boxes" class="boxes">
-            <div id="box" class="box">
+            <div class="box">
                 <span class="title">sensores</span>
                 <h4 id="t_sensor" class="value"></h4>
             </div>
-            <div id="box" class="box">
+            <div class="box">
                 <span class="title">custo</span>
                 <h4 id="t_custo" class="value"></h4>
             </div>
-            <div id="box" class="box">
+            <div class="box">
                 <span class="title">sacas ganhas</span>
                 <h4 id="t_saca" class="value"></h4>
             </div>
-            <div id="box" class="box">
+            <div class="box">
                 <span class="title">economia</span>
                 <h4 id="t_economy" class="value"></h4>
             </div>

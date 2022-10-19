@@ -17,6 +17,13 @@ var tipo1 = 0
 var tipo2 = 0
 var tipo3 = 0
 
+// Recomeçar o cálculo
+function refresh(){
+    i = 0
+    field.innerHTML = ""
+    section.style.display = "none"
+}
+
 // Adiciona inputs para armazém
 function addInput() {
     i += 1
@@ -40,7 +47,7 @@ function addInput() {
             </div>`
         
         // Adiciona botão Calcular    
-        estimate.innerHTML += "<a href='#section'><button onclick='calcular()'>Calcular</button></a>"
+        insertButton.innerHTML = "<a href='#section'><button onclick='calcular()'>Calcular</button></a>"
     }
     if (i < 4) {
         field.innerHTML += `
@@ -115,9 +122,8 @@ function calcular() {
     } else if (saca1 < 50 || i > 1 && saca2 < 50 || i > 2 && saca3 < 50) {
         alert("Sacas insuficientes para realizar a simulação")
     } else {
-        section.style.opacity = "100"
+        section.style.display = "flex"
         boxes.style.width = "70%"
-        estimate.style.height = "60vh"
 
         var sensor = (size1 + size2 + size3) / 15
         var custo = (sensor * 32 + 200) * 1.5

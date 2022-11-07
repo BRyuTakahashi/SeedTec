@@ -5,6 +5,7 @@ use Ceres;
 
 create table Usuario(
 idUser int auto_increment,
+tipo varchar(45),
 nome varchar(45),
 CNPJ char(14),
 ddd char(2),
@@ -16,6 +17,7 @@ complemento varchar(45),
 email varchar(60), 
 username varchar(45),
 senha varchar(30),
+constraint chktipo check (tipo in ('empresa', 'produtor autônomo')),
 constraint chkemail check (email like '%@%'),
 constraint chkestado check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
 primary key (idUser)
@@ -35,8 +37,9 @@ constraint fkusuario foreign key (fkUser) references Usuario(idUser),
 primary key (idArmazem)
 );
 
-create table DHT11(
+create table Sensor(
 idSensor int auto_increment,
+tipo varchar(45),
 fkArmazem int,
 constraint fkarmazem foreign key (fkArmazem) references Armazem(idArmazem),
 primary key (idSensor)
@@ -48,13 +51,13 @@ horario datetime default current_timestamp,
 temperatura double,
 umidade double,
 fkSensor int,
-constraint fksensor foreign key (fkSensor) references DHT11(idSensor),
+constraint fksensor foreign key (fkSensor) references Sensor(idSensor),
 primary key (idMetrica, fkSensor)
 );
 
 -- INSERTS
-insert into Usuario (nome, CNPJ, ddd, telefone, estado, cidade, CEP, complemento, email, username, senha) values
-('Ceres Seed', '12345678901234', '11', '999999999', 'SP', 'São Paulo' , '01234567', null, 'ceres@seeddashboard.com', 'CERESadmin', '1234');
+insert into Usuario (tipo, nome, CNPJ, ddd, telefone, estado, cidade, CEP, complemento, email, username, senha) values
+('Empresa', 'Ceres Seed', '12345678901234', '11', '999999999', 'SP', 'São Paulo' , '01234567', null, 'ceres@seeddashboard.com', 'CERESadmin', '1234');
 
 insert into armazem (tamanho, especie, estado, cidade, CEP, fkuser) values
 (20, 'Café', 'SP','São Paulo','11111111',1),
@@ -65,8 +68,21 @@ insert into armazem (tamanho, especie, estado, cidade, CEP, fkuser) values
 (21, 'Cacau', 'AC','Rio Branco','66666666',1),
 (37, 'Araucária', 'RO','Porto Velho','77777777',1);
 
-insert into DHT11 (fkArmazem) values
-(1), (1), (2), (2), (3), (4), (4), (5), (5), (6), (6), (7), (7), (7);
+insert into Sensor (tipo, fkArmazem) values
+('DHT11', 1), 
+('DHT11', 1), 
+('DHT11', 2), 
+('DHT11', 2), 
+('DHT11', 3), 
+('DHT11', 4), 
+('DHT11', 4), 
+('DHT11', 5), 
+('DHT11', 5), 
+('DHT11', 6), 
+('DHT11', 6), 
+('DHT11', 7), 
+('DHT11', 7), 
+('DHT11', 7);
 
 insert into metrica (idMetrica, temperatura, umidade, fksensor) values
 (1,11,29,10),
@@ -100,11 +116,11 @@ insert into metrica (idMetrica, temperatura, umidade, fksensor) values
 -- SELECT
 
 select m.horario, m.temperatura, m.umidade, a.especie, a.estado, a.cidade, u.nome, u.CNPJ, u.email from Metrica as m
-	join DHT11 as s on m.fkSensor = s.idSensor
+	join Sensor as s on m.fkSensor = s.idSensor
     join Armazem as a on a.idArmazem = s.fkArmazem
     join Usuario as u on u.idUser = a.fkUser;
     
     select * from Metrica as m
-	join DHT11 as s on m.fkSensor = s.idSensor
+	join Sensor as s on m.fkSensor = s.idSensor
     join Armazem as a on a.idArmazem = s.fkArmazem
     join Usuario as u on u.idUser = a.fkUser;

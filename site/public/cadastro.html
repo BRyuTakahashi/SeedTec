@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/sign.css">
+    <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
+
+    <script src="js/cadastro.js"></script>
+    <title>CERES</title>
+</head>
+
+<body>
+
+    <!--LOGO-->
+    <div class="logo">
+        <img onclick="home()" src="img/LOGO.png" alt="">
+    </div>
+
+    <!--FORMULÁRIO DE CADASTRO-->
+    <section>
+        <div class="form">
+            <br>
+            <h1>CADASTRO</h1>
+            <div class="campos">
+                <div class="campo">
+                    <label for="in_nome">Nome:</label>
+                    <input type="text" id="in_nome" placeholder="Nome">
+                </div>
+                <div class="campo">
+                    <label for="in_cnpj">CNPJ:</label>
+                    <input type="text" maxlength="14" id="in_cnpj" onkeydown="maskCNPJ()"
+                        placeholder="00.000.000/0000-00">
+                </div>
+                <div class="campo">
+                    <label for="in_telefone">Telefone:</label>
+                    <input type="tel" onkeydown="return maskTel(event)" id="in_telefone" placeholder="(99) 99999-9999">
+                </div>
+            </div>
+            <div class="campos">
+                <div class="campo">
+                    <label>Estado:</label>
+                    <select id="sel_estado" aria-placeholder="XX">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="in_cidade">Cidade:</label>
+                    <input type="text" id="in_cidade" placeholder="Ceres City">
+                </div>
+                <div class="campo">
+                    <label for="in_cep">CEP:</label>
+                    <input type="text" maxlength="9" id="in_cep" onkeyup="maskCEP()" placeholder="XXXXX-XXX">
+                </div>
+                <div class="campo">
+                    <label for="in_complemento">Complemento:</label>
+                    <input type="text" id="in_complemento" placeholder="(opcional)">
+                </div>
+            </div>
+            <div class="campos">
+                <div class="campo">
+                    <label for="in_email">Email:</label>
+                    <input type="email" id="in_email" placeholder="ceres@seeddashboard.com" onkeydown="chkEmail()">
+                    <div id="errorE"></div>
+                </div>
+                <div class="campo">
+                    <label for="in_user">Username:</label>
+                    <input type="text" id="in_user" placeholder="ceres_seed">
+                </div>
+            </div>
+            <div class="campos">
+                <div class="campo">
+                    <label for="in_senha">Senha:</label>
+                    <input type="password" id="in_senha" placeholder="*******">
+                </div>
+                <div class="campo">
+                    <label for="in_conf_senha">Confirmar senha:</label>
+                    <input type="password" id="in_conf_senha" placeholder="*******" onkeyup="chkPass()">
+                    <div id="error"></div>
+                </div>
+            </div>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+    </section>
+
+</body>
+
+</html>
+<script>
+    
+    function cadastrar() {
+        // aguardar();
+    
+         //Recupere o valor da nova input pelo nome do id
+         // Agora vá para o método fetch logo abaixo
+         var nomeVar = in_nome.value;
+         var cnpjVar = in_cnpj.value;
+         var telefoneVar = in_telefone.value;
+         var estadoVar = sel_estado.value;
+         var cidadeVar = in_cidade.value;
+         var cepVar = in_cep.value;
+         var complementoVar = in_complemento.value;
+         var emailVar = in_email.value;
+         var usernameVar = in_user.value;
+         var senhaVar = in_senha.value;
+         var confirmacaoSenhaVar = in_conf_senha.value;
+    
+         if (nomeVar == "" ||cnpjVar == "" ||telefoneVar == "" ||estadoVar == "" ||cidadeVar == "" ||cepVar == "" ||complementoVar == "" || emailVar == "" ||usernameVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            
+            alert('Preencha todos os campos!')
+             return false;
+         }
+        
+    
+         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            
+             return false;
+         }
+        
+    
+         if (senhaVar != confirmacaoSenhaVar) {
+            
+             alert('As senha não conferem')
+             return false;
+         }
+        
+    
+         // Enviando o valor da nova input
+         fetch("/usuarios/cadastrar", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json"
+             },
+             body: JSON.stringify({
+                 // crie um atributo que recebe o valor recuperado aqui
+                 // Agora vá para o arquivo routes/usuario.js
+                 nomeServer: nomeVar,
+                 cnpjServer: cnpjVar,
+                 telefoneServer: telefoneVar,
+                 estadoServer: estadoVar,
+                 cidadeServer: cidadeVar,
+                 cepServer: cepVar,
+                 complementoServer: complementoVar,
+                 emailServer: emailVar,
+                 usernameServer: usernameVar,
+                 senhaServer: senhaVar,
+             })
+         }).then(function (resposta) {
+    
+             console.log("resposta: ", resposta);
+    
+             if (resposta.ok) {
+              
+                alert('Cadastro realizado com sucesso!')
+               window.location.href = "login.html"
+                
+             } else {
+                 throw ("Houve um erro ao tentar realizar o cadastro!");
+             }
+         }).catch(function (resposta) {
+             console.log(`#ERRO: ${resposta}`);
+            
+         });
+    
+         return false;
+     }
+</script>

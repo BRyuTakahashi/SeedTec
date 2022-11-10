@@ -123,6 +123,8 @@ function calcular() {
 
     var noSize = size1 <= 0 || i > 1 && size2 <= 0 || i > 2 && size3 <= 0
 
+    var sacaNO = saca1 < 50 || i > 1 && saca2 < 50 || i > 2 && saca3 < 50
+
     var coffePrice = (tipo1 == "ca" && price1 < 1000 || tipo1 == "ca" && price1 > 1500) || (tipo2 == "ca" && price2 < 1000 || tipo2 == "ca" && price2 > 1500) || (tipo3 == "ca" && price3 < 1000 || tipo3 == "ca" && price3 > 1500)
 
     var cocoaPrice = (tipo1 == "ch" && price1 < 650 || tipo1 == "ch" && price1 > 900) || (tipo2 == "ch" && price2 < 650 || tipo2 == "ch" && price2 > 900) || (tipo3 == "ch" && price3 < 650 || tipo3 == "ch" && price3 > 900)
@@ -139,7 +141,7 @@ function calcular() {
         alert("🍫 Valor da saca de cacau fora da cotação da Cepea/Esalq")
     } else if (arauPrice) {
         alert("🌲 Valor da saca de araucária fora da cotação da Cepea/Esalq")
-    } else if (saca1 < 50 || i > 1 && saca2 < 50 || i > 2 && saca3 < 50) {
+    } else if (sacaNO) {
         alert("Sacas insuficientes para realizar a simulação")
     } else {
         section.style.display = "flex"

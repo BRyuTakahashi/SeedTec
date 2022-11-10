@@ -118,12 +118,17 @@
 
 </html>
 <script>
+
+    var tipo = localStorage.getItem('tipo')
+    console.log(tipo)
     
     function cadastrar() {
         // aguardar();
     
          //Recupere o valor da nova input pelo nome do id
          // Agora vá para o método fetch logo abaixo
+        
+         var tipoVar = tipo
          var nomeVar = in_nome.value;
          var cnpjVar = in_cnpj.value;
          var telefoneVar = in_telefone.value;

@@ -75,6 +75,7 @@ body{
 
 .estimate{
     width: 63%;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,6 +86,67 @@ body{
     font-size: 30px;
     font-weight: 700;
     color: #49ae39;
+}
+
+.info-modal{
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    font-family: Roboto Slab;
+    position: absolute;
+    left: 70%;
+    bottom: 40%;
+    text-align: center;
+    background-color: #49ae39;
+    padding: 2rem 0;
+    width: 27%;
+    height: 0;
+    border-radius: 5px;
+    transition: .2s ease;
+}
+
+
+
+.info-modal h1{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.info-modal .infos{
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.infos .info{
+    text-align: start;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: .5rem;
+    height: 50px;
+}
+
+
+.info p{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.info p b{
+    font-weight: 700;
+}
+
+.info span{
+    font-size: 12px;
+    font-weight: 600;
+    font-style: italic;
 }
 
 button {
@@ -109,7 +171,7 @@ button:hover{
 
 .addOn{
     display: flex;
-    width: 40%;
+    width: 50%;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -138,7 +200,13 @@ a{
 }
 
 .refresh{
-    width: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.info{
+    width: 40px;
+    height: 40px;
 }
 
 #field{

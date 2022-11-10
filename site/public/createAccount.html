@@ -19,8 +19,8 @@
             <h1>Novo por aqui?</h1>
             <h2>Crie sua conta agora mesmo</h2>
             <div class="button">
-                <button onclick="signup()">Produtor autônomo</button>
-                <button onclick="signup()">Empresa</button>
+                <button onclick="signProd()">Produtor autônomo</button>
+                <button onclick="signEnterprise()">Empresa</button>
             </div>
             <span class="login">Já tem uma conta? <a href="login.html">Faça login</a></span>
         </div>
@@ -35,7 +35,18 @@
 </html>
 
 <script>
-    function signup(){
+    var tipoClient =  ""
+
+    function signProd(){
+        tipoClient = localStorage.setItem('tipo', 'Produtor autônomo')
+        localStorage.removeItem('tipoEmpresa')
+        window.location.href = "cadastro.html"
+
+    }
+
+    function signEnterprise(){
+        tipoClient = localStorage.setItem('tipo', 'Empresa')
+        localStorage.removeItem('tipoProd')
         window.location.href = "cadastro.html"
     }
 </script>

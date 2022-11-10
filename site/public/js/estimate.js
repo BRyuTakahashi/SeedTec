@@ -17,8 +17,28 @@ var tipo1 = 0
 var tipo2 = 0
 var tipo3 = 0
 
+// Informações
+var open = 0
+function infoModal() {
+    if (open == 0) {
+        open++
+        var modal = document.querySelector('.info-modal')
+        modal.style.opacity = 1
+        modal.style.height = '200px'
+    } else{
+        var modal = document.querySelector('.info-modal')
+        modal.style.opacity = 0
+        modal.style.height = 0
+        open = 0
+    }
+
+}
+
+console.log(open)
+
+
 // Recomeçar o cálculo
-function refresh(){
+function refresh() {
     i = 0
     field.innerHTML = ""
     section.style.display = "none"
@@ -45,7 +65,7 @@ function addInput() {
                     <label>Tipo</label>
                 </div>
             </div>`
-        
+
         // Adiciona botão Calcular    
         insertButton.innerHTML = "<a href='#section'><button onclick='calcular()'>Calcular</button></a>"
     }
@@ -92,7 +112,7 @@ function calcular() {
 
     // 3 Armazéns
     if (i > 2) {
-     size3 = Number(in_size3.value)
+        size3 = Number(in_size3.value)
         saca3 = Number(in_saca3.value)
         price3 = Number(in_price3.value)
         tipo3 = sel_tipo3.value

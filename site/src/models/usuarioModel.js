@@ -19,13 +19,13 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, cnpj, telefone, estado, cidade, cep, complemento, email, username, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, telefone, estado, cidade, cep, complemento, email,username, senha);
+function cadastrar(nome, tipo, cnpj, ddd, telefone, estado, cidade, cep, complemento, email, username, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, tipo, cnpj, ddd, telefone, estado, cidade, cep, complemento, email,username, senha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, CNPJ, telefone, estado, cidade, CEP, complemento, email, username, senha) VALUES ('${nome}','${cnpj}','${telefone}','${estado}','${cidade}','${cep}','${complemento}', '${email}','${username}', '${senha}');
+        INSERT INTO usuario (nome, tipo, CNPJ, ddd, telefone, estado, cidade, CEP, complemento, email, username, senha) VALUES ('${nome}','${tipo}','${cnpj}','${ddd}','${telefone}','${estado}','${cidade}','${cep}','${complemento}', '${email}','${username}', '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

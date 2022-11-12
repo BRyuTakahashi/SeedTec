@@ -39,14 +39,11 @@
 
     function signProd(){
         tipoClient = localStorage.setItem('tipo', 'Produtor autônomo')
-        localStorage.removeItem('tipoEmpresa')
         window.location.href = "cadastro.html"
-
     }
 
     function signEnterprise(){
         tipoClient = localStorage.setItem('tipo', 'Empresa')
-        localStorage.removeItem('tipoProd')
         window.location.href = "cadastro.html"
     }
 </script>

@@ -124,8 +124,7 @@
 
     function cadastrar() {
 
-        var tel = in_telefone.value.replaceAll('-', '').replace(" ", "")
-        var tipoVar = tipo
+        var tel = in_telefone.value.replaceAll('-', '').replace(" ", "");
         var nomeVar = in_nome.value;
         var cnpjVar = in_cnpj.value.replaceAll('.', '').replace('/', '');
         var telefoneVar = tel.slice(4, 13);
@@ -138,6 +137,7 @@
         var usernameVar = in_user.value;
         var senhaVar = in_senha.value;
         var confirmacaoSenhaVar = in_conf_senha.value;
+        var tipo = 1;
 
         console.log(tipo)
         console.log(cnpjVar)
@@ -176,7 +176,6 @@
                      // crie um atributo que recebe o valor recuperado aqui
                      // Agora vá para o arquivo routes/usuario.js
                      nomeServer: nomeVar,
-                     tipoServer: tipoVar,
                      cnpjServer: cnpjVar,
                      dddServer: dddVar,
                      telefoneServer: telefoneVar,
@@ -187,6 +186,7 @@
                      emailServer: emailVar,
                      usernameServer: usernameVar,
                      senhaServer: senhaVar,
+                     tipoServer: tipoVar,
                  })
              }).then(function (resposta) {
 

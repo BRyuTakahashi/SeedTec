@@ -1,4 +1,4 @@
-drop database Ceres;
+-- drop database Ceres;
 
 create database Ceres;
 use Ceres;
@@ -35,7 +35,7 @@ primary key (idUsuario)
 );
 
 create table Armazem(
-idArmazem int auto_increment,
+idArmazem int PRIMARY KEY auto_increment,
 tamanho int,
 sacas INT,
 fkUsuario INT,
@@ -44,27 +44,43 @@ fkEndereco INT,
 FOREIGN KEY (fkEndereco) REFERENCES Endereco(idEndereco)
 );
 
--- Error Code: 1075. Incorrect table definition; there can be only one auto column and it must be defined as a key	0.000 sec
+create table Semente(
+idSemente INT PRIMARY KEY AUTO_INCREMENT,
+especie VARCHAR(45),
+nome VARCHAR(45)
+);
+
+CREATE TABLE SementeArmazenada(
+fkArmazen INT,
+FOREIGN KEY (fkArmazen) REFERENCES Armazem(idArmazem),
+fkSemente INT,
+FOREIGN KEY (fkSemente) REFERENCES Semente(idSemente),
+dtArmazenamento DATETIME
+);
 
 create table Sensor(
-idSensor int auto_increment,
-tipo varchar(45),
-fkArmazem int,
-constraint fkarmazem foreign key (fkArmazem) references Armazem(idArmazem),
-primary key (idSensor)
+idSensor INT PRIMARY KEY,
+nome VARCHAR(45),
+fkArmazem INT,
+FOREIGN KEY (fkArmazem) REFERENCES Armazem(idArmazem)
 );
 
 create table Metrica(
-idMetrica int,
-horario datetime default current_timestamp,
-temperatura double,
-umidade double,
-fkSensor int,
-constraint fksensor foreign key (fkSensor) references Sensor(idSensor),
-primary key (idMetrica, fkSensor)
+idMetrica INT,
+horario DATETIME,
+temperatura DOUBLE,
+umidade DOUBLE,
+fkSensor INT,
+PRIMARY KEY (idMetrica, fkSensor),
+FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor)
 );
 
 -- INSERTS
+
+INSERT INTO Tipo VALUES
+	(null, 'Produtor Autônomo'),
+    (null, 'Empresa');
+
 insert into Usuario (tipo, nome, CNPJ, ddd, telefone, estado, cidade, CEP, complemento, email, username, senha) values
 ('Empresa', 'Ceres Seed', '12345678901234', '11', '999999999', 'SP', 'São Paulo' , '01234567', null, 'ceres@seeddashboard.com', 'CERESadmin', '1234');
 
@@ -133,3 +149,5 @@ select m.horario, m.temperatura, m.umidade, a.especie, a.estado, a.cidade, u.nom
 	join Sensor as s on m.fkSensor = s.idSensor
     join Armazem as a on a.idArmazem = s.fkArmazem
     join Usuario as u on u.idUser = a.fkUser;
+    
+SELECT * FROM Usuario;

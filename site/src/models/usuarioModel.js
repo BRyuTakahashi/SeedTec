@@ -25,7 +25,7 @@ function cadastrar(nome, cnpj, ddd, telefone, estado, cidade, cep, complemento, 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        // INSERT INTO Endereco (estado, cidade, CEP, complemento, numero) VALUES ('${estado}', '${cidade}', '${cep}', '${complemento}');
+        INSERT INTO Endereco (estado, cidade, CEP, complemento, numero) VALUES ('${estado}', '${cidade}', '${cep}', '${complemento}', '${numero}');
 
         INSERT INTO Usuario (nome, tipo, CNPJ, ddd, telefone, email, username, senha, fkEndereco, fkTipo) VALUES ('${nome}','${tipo}','${cnpj}','${ddd}','${telefone}', '${email}','${username}', '${senha}', '${endereco}', '${tipo}');
 

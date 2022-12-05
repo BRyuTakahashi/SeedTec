@@ -32,11 +32,11 @@ function cadastrarEndereco(estado, cidade, cep, complemento) {
     return database.executar(instrucao);
 }
 
-function cadastrarCliente(nome, cnpj, ddd, telefone, email, username, senha, fkEndereco, tipo) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, ddd, telefone, estado, cidade, cep, complemento, email, username, senha, tipo);
+function cadastrarCliente(nome, cnpj, ddd, telefone, email, username, senha, fkEndereco, fkTipo) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, cnpj, ddd, telefone, email, username, senha, fkEndereco, fkTipo);
 
-    var intrucao =
-        `INSERT INTO Usuario (nome, tipo, CNPJ, ddd, telefone, email, username, senha, fkEndereco, fkTipo) VALUES ('${nome}','${tipo}','${cnpj}','${ddd}','${telefone}', '${email}','${username}', '${senha}', '${fkEndereco}', '${tipo}');`
+    var instrucao =
+        `INSERT INTO Usuario (nome, CNPJ, ddd, telefone, email, username, senha, fkEndereco, fkTipo) VALUES ('${nome}','${cnpj}','${ddd}','${telefone}', '${email}','${username}', '${senha}', '${fkEndereco}', '${fkTipo}');`
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

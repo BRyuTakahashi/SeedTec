@@ -38,12 +38,12 @@
     var tipoClient =  ""
 
     function signProd(){
-        tipoClient = localStorage.setItem('tipo', 'Produtor autônomo')
+        tipoClient = localStorage.setItem('tipo', 1)
         window.location.href = "cadastro.html"
     }
 
     function signEnterprise(){
-        tipoClient = localStorage.setItem('tipo', 'Empresa')
+        tipoClient = localStorage.setItem('tipo', 2)
         window.location.href = "cadastro.html"
     }
 </script>

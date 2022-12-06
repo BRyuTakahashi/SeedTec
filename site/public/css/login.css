@@ -28,7 +28,36 @@ body{
     background-image: url("../img/logoBG.png");
     background-repeat: no-repeat;
     background-size: 600px;
+    overflow: hidden;
     
+}
+
+#loader{
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+}
+
+#loader .box{
+    background-color: #171f17;
+    opacity: 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 5vw;
+    height: 2vh;
+    transition: 1s ease;
+}
+
+#loader .box img{
+    width: 150px;
 }
 
 section{

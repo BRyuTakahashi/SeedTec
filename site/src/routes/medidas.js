@@ -11,4 +11,8 @@ router.get("/tempo-real/:idArmazem", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/selectSacas/:idArmazem", function (req, res) {
+    medidaController.selectSacas(req, res);
+})
+
 module.exports = router;

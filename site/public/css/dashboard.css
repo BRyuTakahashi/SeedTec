@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap&family=Oswald:wght@300;400;500;600;700;800&display=swap');
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 10px;
     transition: all .2s linear;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #1F2B20;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #49ae39;
 }
 
-
 :root {
-    --color-primary:#49ae39;
+    --color-primary: #49ae39;
     --color-danger: #ff3c4c;
     --color-sucess: #41f1b6;
     --color-warning: #ffbb55;
@@ -39,8 +38,6 @@
 
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -50,11 +47,6 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-
-}
-
-html {
-    font-size: 14px;
 
 }
 
@@ -92,7 +84,6 @@ img {
 h1 {
     font-weight: 800;
     font-size: 1.8rem;
-
 }
 
 h2 {
@@ -157,7 +148,6 @@ aside {
 }
 
 aside .top {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,13 +170,11 @@ aside .close {
 }
 
 aside .sidebar {
-
     display: flex;
     flex-direction: column;
     height: 86vh;
     position: relative;
     top: 3rem;
-
 }
 
 aside h3 {
@@ -202,8 +190,6 @@ aside .sidebar a {
     position: relative;
     height: 3.7rem;
     transition: all 300ms ease
-    
-
 }
 
 aside .sidebar a span {
@@ -248,7 +234,6 @@ aside .sidebar a:hover {
 
 }
 
-
 aside .sidebar .message-count {
     background: var(--color-danger);
     color: white;
@@ -258,10 +243,11 @@ aside .sidebar .message-count {
 }
 
 
-#logout{
+#logout {
     position: relative;
-    top: 18rem;
+    top: 15rem;
 }
+
 /*========== Conteudo Principal =============== */
 
 main {
@@ -269,22 +255,21 @@ main {
     margin-left: 15rem;
 }
 
-main .kpi{
+main .kpi {
     font-family: Oswald;
 }
 
-
-
-main .stock-bnt{
-    margin: 2rem  0 2rem 2rem; 
+main .stock-bnt {
+    margin: 2rem 0 2rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;}
+    width: 500px;
+}
 
-.stock{
+.stock {
     background-color: #274729;
-    display: flex;   
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -295,21 +280,21 @@ main .stock-bnt{
     transition: .2s ease;
 }
 
-.stock:hover{
+.stock:hover {
     cursor: pointer;
     background-color: #289231;
 }
 
-.stock h1{
+.stock h1 {
     font-weight: 500;
     font-size: 15px;
 }
 
-.stock h2{
+.stock h2 {
     font-size: 12px;
 }
 
-.boxes{
+.boxes {
     margin: auto;
     padding: 2rem;
     display: grid;
@@ -317,7 +302,21 @@ main .stock-bnt{
     gap: 2rem;
 }
 
-.box{
+@keyframes alert {
+    0% {
+        box-shadow: 0;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #ff3c4c;
+    }
+
+    100% {
+        box-shadow: 0;
+    }
+}
+
+.box {
     background-color: #36bd41;
     display: flex;
     border-radius: 5px;
@@ -328,44 +327,48 @@ main .stock-bnt{
     width: 235px;
     position: relative;
     bottom: 0;
-    transition: .3s ease;
+    transition: .5s ease;
 }
 
-.box:hover{
+.box:hover {
     background-color: #3fce4b;
     bottom: 5px;
 }
 
-.box h2{
+.box h2 {
     color: #1F2B20;
     font-size: 12px;
     text-transform: uppercase;
 }
 
-.box h1{
+.box h1 {
     color: #1F2B20;
     font-size: 40px;
 }
 
-.box span{
+.box span {
     text-transform: uppercase;
     color: #131c14;
     font-size: 12px;
 }
 
-.atencao{
+.atencao {
     background: #d8e750;
 }
-.atencao:hover{
-    background:#bfcc48;
+
+.atencao:hover {
+    background: #bfcc48;
 }
-.perigo{
+
+.perigo {
     background: #ff4800;
 }
-.perigo:hover{
+
+.perigo:hover {
     background: #f04501;
 }
-.ideal:hover{
+
+.ideal:hover {
     background: #31ad3b;
 }
 
@@ -387,12 +390,12 @@ main .insights>div {
 }
 
 
-.graph h1{
+.graph h1 {
     font-size: 20px;
     margin: 1rem 0 .5rem;
 }
 
-.graph h2{
+.graph h2 {
     margin: 0 0 1rem;
     font-size: 15px;
     font-weight: 400;

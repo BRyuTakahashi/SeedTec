@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="shortcut icon" href="img/green_logo.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dash.js"></script>
 </head>
 
 <body>
@@ -62,22 +63,22 @@
                 <div class="boxes">
                     <div class="box">
                         <h2>Temperatura atual</h2>
-                        <h1>12.3ºC</h1>
-                        <span>Dentro do ideal</span>
+                        <h1 id="kpiTemp"></h1>
+                        <span id="statusTemp"></span>
                     </div>
                     <div class="box">
                         <h2>Umidade atual</h2>
-                        <h1>17.8%</h1>
+                        <h1 id="kpiUmi"></h1>
                         <span>Dentro do ideal</span>
                     </div>
-                    <div class="box perigo">
+                    <div class="box">
                         <h2>Temperatura máxima</h2>
-                        <h1>25ºC</h1>
+                        <h1 id="kpiTempMax">25ºC</h1>
                         <span>Crítico</span>
                     </div>
                     <div class="box">
                         <h2>Umidade máxima</h2>
-                        <h1>18%</h1>
+                        <h1 id="kpiUmiMax"></h1>
                         <span>Dentro do ideal</span>
                     </div>
                 </div>
@@ -120,154 +121,112 @@
 
 </html>
 <script>
-    const tempLabel = [
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
-        '18:00',
 
-    ];
 
-    const data = {
-        labels: tempLabel,
-        datasets: [{
-            label: 'Temperatura',
-            backgroundColor: '#49ae39',
-            borderColor: '#49ae39',
-            data: [7, 10, 12, 25, 7.8, 9, 11],
-        },
-        {
-            label: 'Umidade',
-            backgroundColor: '#FFF0A6',
-            borderColor: '#FFF0A6',
-            data: [14, 17, 16, 15, 14, 17, 18],
-        }
-        ]
-    };
 
-    const monthLabel = [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Junho',
-        'Julho',
 
-    ];
+//     const monthLabel = [
+//         'Janeiro',
+//         'Fevereiro',
+//         'Março',
+//         'Abril',
+//         'Maio',
+//         'Junho',
+//         'Julho',
 
-    const dataBar = {
-        labels: monthLabel,
-        datasets: [{
-            label: 'Temperatura Média',
-            backgroundColor: '#49ae39',
-            borderColor: '#49ae39',
-            data: [8, 9, 7, 7, 7.8, 9, 8],
-        },
-        {
-            label: 'Umidade Média',
-            backgroundColor: '#FFF0A6',
-            borderColor: '#FFF0A6',
-            data: [18, 15, 17, 17,5, 18, 17, 18],
-        }
-        ]
-    };
+//     ];
 
-    const data2 = {
-        labels: [
-            'Café',
-            'Cacau',
-            'Araucária',
-        ],
-        datasets: [{
-            label: 'Sacas por armazém',
-            data: [1500, 1200, 700],
-            backgroundColor: [
-                '#49ae39',
-                '#FFF0A6',
-                '#3991ae'
-            ]
-        }]
-    };
+//     const dataBar = {
+//         labels: monthLabel,
+//         datasets: [{
+//             label: 'Temperatura Média',
+//             backgroundColor: '#49ae39',
+//             borderColor: '#49ae39',
+//             data: [8, 9, 7, 7, 7.8, 9, 8],
+//         },
+//         {
+//             label: 'Umidade Média',
+//             backgroundColor: '#FFF0A6',
+//             borderColor: '#FFF0A6',
+//             data: [18, 15, 17, 17, 5, 18, 17, 18],
+//         }
+//         ]
+//     };
 
-    const config = {
-        type: 'line',
-        data: data,
-        options: {
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        color: '#fff'
-                    },
-                },
+//     const data2 = {
+//         labels: [
+//             'Café',
+//             'Cacau',
+//             'Araucária',
+//         ],
+//         datasets: [{
+//             label: 'Sacas por armazém',
+//             data: [1500, 1200, 700],
+//             backgroundColor: [
+//                 '#49ae39',
+//                 '#FFF0A6',
+//                 '#3991ae'
+//             ]
+//         }]
+//     };
 
-            }
-        }
-    }
 
-    const config2 = {
-        type: 'bar',
-        data: dataBar,
-        options: {
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        color: '#fff'
-                    },
-                }
-            }
-        }
-    }
+//     const config2 = {
+//         type: 'bar',
+//         data: dataBar,
+//         options: {
+//             plugins: {
+//                 legend: {
+//                     display: true,
+//                     labels: {
+//                         color: '#fff'
+//                     },
+//                 }
+//             }
+//         }
+//     }
 
-    const config3 = {
-        type: 'polarArea',
-        data: data2,
-        options: {
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        color: '#fff'
-                    },
-                }
-            }
-        }
-    }
-    const config4 = {
-        type: 'doughnut',
-        data: data2,
-        options: {
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        color: '#fff'
-                    },
-                }
-            }
-        }
-    }
+//     const config3 = {
+//         type: 'polarArea',
+//         data: data2,
+//         options: {
+//             plugins: {
+//                 legend: {
+//                     display: true,
+//                     labels: {
+//                         color: '#fff'
+//                     },
+//                 }
+//             }
+//         }
+//     }
+//     const config4 = {
+//         type: 'doughnut',
+//         data: data2,
+//         options: {
+//             plugins: {
+//                 legend: {
+//                     display: true,
+//                     labels: {
+//                         color: '#fff'
+//                     },
+//                 }
+//             }
+//         }
 </script>
+
 <script>
-    const lineChart = new Chart(
-        document.getElementById('chartLine'),
-        config
-    );
-    const barChart = new Chart(
-        document.getElementById('chartBar'),
-        config2
-    );
-    const radarChart = new Chart(
-        document.getElementById('chartRadar'),
-        config3
-    );
-    const donutChart = new Chart(
-        document.getElementById('chartDonut'),
-        config4
-    );
-</script>
+
+//     const barChart = new Chart(
+//         document.getElementById('chartBar'),
+//         config2
+//     );
+//     const radarChart = new Chart(
+//         document.getElementById('chartRadar'),
+//         config3
+//     );
+//     const donutChart = new Chart(
+//         document.getElementById('chartDonut'),
+//         config4
+//     );
+// </script>

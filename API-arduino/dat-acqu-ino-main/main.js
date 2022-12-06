@@ -33,7 +33,7 @@ const serial = async (
                 host: 'localhost',
                 user: 'root',
                 password: 'Duda2@20',
-                database: 'aquatech'
+                database: 'dbCeres'
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {
@@ -75,7 +75,7 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> Importante! você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO medida (dht11_umidade, dht11_temperatura, momento, fk_aquario) VALUES (${dht11Umidade}, ${dht11Temperatura}, CURRENT_TIMESTAMP, 1)`;
+                sqlquery = `INSERT INTO metrica (temperatura, umidade, horario, fkSensor, fkArmazem) VALUES (${dht11Temperatura}, ${dht11Umidade}, CURRENT_TIMESTAMP, 1, 1)`;
 
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
@@ -99,8 +99,8 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO medida (dht11_umidade, dht11_temperatura,momento, fk_aquario) VALUES (?, ?, now(), 1)',
-                    [dht11Umidade, dht11Temperatura,]
+                    'INSERT INTO metrica (temperatura, umidade, horario, fkSensor, fkArmazem) VALUES (?, ?, now(), 1, 1)',
+                    [dht11Temperatura, dht11Umidade,]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
 

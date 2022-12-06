@@ -19,28 +19,48 @@ function obterDadosGrafico(idArmazem) {
                 var box = document.querySelectorAll(".box")
 
                 temperatura -= parseInt(Math.random() * 20)
+                umidade -= parseInt(Math.random() * 20)
 
-                for (var i = 0; i < 4; i++) {
-                    if (temperatura > 20) {
-                        box[0].style = "background-color: #ff3c4c; animation: alert 20s infinite ease"
-                        statusTemp.innerHTML = "CRÍTICO"
-                    } else if (temperatura > 15) {
-                        box[0].style = "background-color: #ffbb55"
-                        statusTemp.innerHTML = "ATENÇÃO"
-                    } else if (temperatura > 9) {
-                        box[0].style = "background-color: #49ae39"
-                        statusTemp.innerHTML = "DENTRO DO IDEAL"
-                    } else if (temperatura > 4) {
-                        box[0].style = "background-color: #ffbb55"
-                        statusTemp.innerHTML = "ATENÇÃO"
-                    } else {
-                        box[0].style = "background-color: #ff3c4c; animation: alert .5s infinite ease"
-                        statusTemp.innerHTML = "CRÍTICO"
-                    }
+
+                if (temperatura > 20) {
+                    box[0].style = "background-color: #ff3c4c; animation: alert 20s infinite ease"
+                    statusTemp.innerHTML = "CRÍTICO"
+                } else if (temperatura > 15) {
+                    box[0].style = "background-color: #ffbb55"
+                    statusTemp.innerHTML = "ATENÇÃO"
+                } else if (temperatura > 9) {
+                    box[0].style = "background-color: #49ae39"
+                    statusTemp.innerHTML = "DENTRO DO IDEAL"
+                } else if (temperatura > 4) {
+                    box[0].style = "background-color: #ffbb55"
+                    statusTemp.innerHTML = "ATENÇÃO"
+                } else {
+                    box[0].style = "background-color: #ff3c4c; animation: alert .5s infinite ease"
+                    statusTemp.innerHTML = "CRÍTICO"
                 }
 
+                if (umidade > 25) {
+                    box[1].style = "background-color: #ff3c4c; animation: alert 20s infinite ease"
+                    statusUmi.innerHTML = "CRÍTICO"
+                } else if (umidade > 20) {
+                    box[1].style = "background-color: #ffbb55"
+                    statusUmi.innerHTML = "ATENÇÃO"
+                } else if (umidade > 14) {
+                    box[1].style = "background-color: #49ae39"
+                    statusUmi.innerHTML = "DENTRO DO IDEAL"
+                } else if (umidade > 9) {
+                    box[1].style = "background-color: #ffbb55"
+                    statusUmi.innerHTML = "ATENÇÃO"
+                } else {
+                    box[1].style = "background-color: #ff3c4c; animation: alert .5s infinite ease"
+                    statusUmi.innerHTML = "CRÍTICO"
+                }
+
+
+
+
                 kpiTemp.innerHTML = temperatura + "ºC"
-                kpiUmi.innerHTML = resposta[0].umidade + "%"
+                kpiUmi.innerHTML = umidade + "%"
                 // kpiTempMax.innerHTML = temp + "ºC"
                 // kpiUmiMax.innerHTML = resposta[0].maxUmi + "%"
 

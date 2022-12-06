@@ -1,5 +1,5 @@
-CREATE DATABASE Ceres;
-USE Ceres;
+CREATE DATABASE dbCeres;
+USE dbCeres;
 
 CREATE TABLE Tipo(
 idTipo INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,7 +46,6 @@ delimiter ;
 CREATE TABLE Armazem(
 idArmazem INT PRIMARY KEY AUTO_INCREMENT,
 tamanho INT,
-sacas INT,
 fkUsuario INT,
 FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
 fkEndereco INT,
@@ -60,10 +59,11 @@ nome VARCHAR(45)
 );
 
 CREATE TABLE SementeArmazenada(
-fkArmazen INT,
-FOREIGN KEY (fkArmazen) REFERENCES Armazem(idArmazem),
+fkArmazem INT,
+FOREIGN KEY (fkArmazem) REFERENCES Armazem (idArmazem),
 fkSemente INT,
-FOREIGN KEY (fkSemente) REFERENCES Semente(idSemente),
+FOREIGN KEY (fkSemente) REFERENCES Semente (idSemente),
+sacas INT,
 dtArmazenamento DATETIME
 );
 
@@ -90,23 +90,51 @@ INSERT INTO Tipo VALUES
 (NULL, 'Empresa');
 
 INSERT INTO Armazem VALUES
-(null, 45, 100, null, null);
+(NULL, 45, NULL, NULL);
 
 INSERT INTO Sensor VALUES
 (1, "DHT11");
 
 INSERT INTO Metrica VALUES
-(null, "2022-12-01 12:00:00", 20, 19, 1, 1),
-(null, "2022-12-01 13:00:00", 27, 21, 1, 1),
-(null, "2022-12-01 14:00:00", 17, 20, 1, 1),
-(null, "2022-12-01 15:00:00", 12, 18, 1, 1),
-(null, "2022-12-01 16:00:00", 19, 21, 1, 1);
+(NULL, "2022-11-01 12:00:00", 20, 19, 1, 1),
+(NULL, "2022-10-01 13:00:00", 27, 21, 1, 1),
+(NULL, "2022-09-01 14:00:00", 17, 20, 1, 1),
+(NULL, "2022-08-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-07-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-06-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-05-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-04-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-03-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-02-01 15:00:00", 12, 18, 1, 1),
+(NULL, "2022-01-01 16:00:00", 19, 21, 1, 1);
+
+INSERT INTO Semente VALUES
+(null, "Coffea", "Café"),
+(null, "Araucaria angustifolia", "Araucária"),
+(null, "Theobroma cacao", "Cacau");
+
+INSERT INTO SementeArmazenada VALUES
+(1, 1, 100, "2022-07-19"),
+(1, 2, 300, "2022-07-19"),
+(1, 3, 650, "2022-07-19");
 
 -- SELECTS
 SELECT * FROM usuario;
 SELECT * FROM endereco;
 SELECT * FROM Metrica;
 SELECT * FROM Armazem;
+
+SELECT (SELECT MAX(Temperatura) FROM metrica) AS TempMax, (SELECT MAX(Umidade) FROM metrica) AS UmiMax,
+temperatura, umidade, horario, DATE_FORMAT(Horario,'%H:%i:%s') AS horario_grafico 
+FROM metrica WHERE fkArmazem = 1
+ORDER bY idMetrica DESC lIMIT 7;
+
+SELECT nome, SUM(sacas) Sacas FROM Armazem
+JOIN SementeArmazenada ON  fkArmazem = idArmazem
+JOIN Semente ON fkSemente = idSemente
+WHERE fkArmazem = 1
+GROUP BY nome;
+
     
     
 

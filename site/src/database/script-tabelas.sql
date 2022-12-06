@@ -1,50 +1,99 @@
-create database Ceres;
-use Ceres;
+CREATE DATABASE Ceres;
+USE Ceres;
 
-create table Usuario(
-idUser int auto_increment,
-nome varchar(45),
-CNPJ char(14),
-telefone varchar(9),
-estado varchar(45),
-cidade varchar(45),
-CEP char(8),
-complemento varchar(45),
-email varchar(60), 
-username varchar(45),
-senha varchar(30),
-constraint chkemail check (email like '%@%'),
-constraint chkestado check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
-primary key (idUser)
+CREATE TABLE Tipo(
+idTipo INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45)
 );
 
-create table Armazem(
-idArmazem int auto_increment,
-tamanho int,
-especie varchar(45),
-estado char(2),
-cidade varchar(45),
-CEP char(8),
-fkUser int,
-constraint chkestado2 check (estado in ('AC','AL','AP','AM','BA','CE','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')),
-constraint chkespecie check (especie in ('Café','Araucária','Cacau')),
-constraint fkusuario foreign key (fkUser) references Usuario(idUser),
-primary key (idArmazem)
+CREATE TABLE Endereco(
+idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+estado CHAR(2),
+cidade VARCHAR(65),
+CEP CHAR(8),
+complemento VARCHAR(45)
 );
 
-create table DHT11(
-idSensor int auto_increment,
-fkArmazem int,
-constraint fkarmazem foreign key (fkArmazem) references Armazem(idArmazem),
-primary key (idSensor)
+CREATE TABLE Usuario(
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45),
+CNPJ CHAR(14),
+ddd CHAR(2),
+telefone VARCHAR(9),
+email VARCHAR(60), 
+username VARCHAR(45),
+senha VARCHAR(30),
+fkEndereco INT,
+FOREIGN KEY (fkEndereco) REFERENCES Endereco(idEndereco),
+fkTipo INT,
+FOREIGN KEY (fkTipo) REFERENCES Tipo(idTipo),
+CONSTRAINT chkemail CHECK (email LIKE '%@%')
 );
 
-create table Metrica(
-idMetrica int,
-horario datetime default current_timestamp,
-temperatura double,
-umidade double,
-fkSensor int,
-constraint fksensor foreign key (fkSensor) references DHT11(idSensor),
-primary key (idMetrica, fkSensor)
+delimiter $$
+CREATE PROCEDURE SP_cadastro_endereco(
+IN estado CHAR(2),
+IN cidade VARCHAR(45),
+IN CEP CHAR(8),
+IN complemento VARCHAR(45)
+)
+BEGIN
+	INSERT INTO Endereco (estado, cidade, CEP, complemento) VALUES (estado, cidade, CEP, complemento);
+    SELECT idEndereco FROM endereco ORDER BY idEndereco DESC LIMIT 1;
+END $$
+delimiter ;
+
+CREATE TABLE Armazem(
+idArmazem INT PRIMARY KEY AUTO_INCREMENT,
+tamanho INT,
+sacas INT,
+fkUsuario INT,
+FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario),
+fkEndereco INT,
+FOREIGN KEY (fkEndereco) REFERENCES Endereco(idEndereco)
 );
+
+CREATE TABLE Semente(
+idSemente INT PRIMARY KEY AUTO_INCREMENT,
+especie VARCHAR(45),
+nome VARCHAR(45)
+);
+
+CREATE TABLE SementeArmazenada(
+fkArmazen INT,
+FOREIGN KEY (fkArmazen) REFERENCES Armazem(idArmazem),
+fkSemente INT,
+FOREIGN KEY (fkSemente) REFERENCES Semente(idSemente),
+dtArmazenamento DATETIME
+);
+
+CREATE TABLE Sensor(
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45)
+);
+
+CREATE TABLE Metrica(
+idMetrica INT AUTO_INCREMENT,
+horario DATETIME,
+temperatura DOUBLE,
+umidade DOUBLE,
+fkSensor INT,
+PRIMARY KEY (idMetrica, fkSensor),
+FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
+fkArmazem INT,
+FOREIGN KEY (fkArmazem) REFERENCES Armazem (idArmazem)
+);
+
+-- INSERTS
+INSERT INTO Tipo VALUES
+(NULL, 'Produtor Autônomo'),
+(NULL, 'Empresa');
+
+-- SELECTS
+SELECT * FROM usuario;
+SELECT * FROM endereco;
+SELECT * FROM Metrica;
+SELECT * FROM Armazem;
+    
+    
+

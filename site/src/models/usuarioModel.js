@@ -25,7 +25,7 @@ function cadastrarEndereco(estado, cidade, cep, complemento) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        CALL SP_cadastro_endereco('${estado}', '${cidade}', '${cep}','${complemento}');
+        EXEC SP_cadastro_endereco '${estado}', '${cidade}', '${cep}', '${complemento}';
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);

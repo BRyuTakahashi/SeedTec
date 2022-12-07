@@ -15,7 +15,7 @@ function buscarUltimasMedidas(idArmazem, limite_linhas) {
                     order by idMetrica desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-        SELECT (SELECT MAX(Temperatura), FROM metrica) AS tempMax, (SELECT MAX(Umidade) FROM metrica) AS umiMax,
+        SELECT (SELECT MAX(Temperatura) FROM metrica) AS tempMax, (SELECT MAX(Umidade) FROM metrica) AS umiMax,
         temperatura, umidade, horario, DATE_FORMAT(Horario,'%H:%i:%s') AS horario_grafico 
         from metrica where fkArmazem = ${idArmazem}
         order by idMetrica desc limit ${limite_linhas}
@@ -45,9 +45,10 @@ function buscarMedidasEmTempoReal(idArmazem) {
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-        select temperatura, umidade, DATE_FORMAT(horario,'%H:%i:%s') as horario_grafico, fkArmazem 
-        from metrica where fkArmazem = ${idArmazem} 
-        order by idMetrica desc limit 1`;
+        SELECT (SELECT MAX(Temperatura) FROM metrica) AS tempMax, (SELECT MAX(Umidade) FROM metrica) AS umiMax,
+        temperatura, umidade, horario, DATE_FORMAT(Horario,'%H:%i:%s') AS horario_grafico 
+        from metrica where fkArmazem = ${idArmazem}
+        ORDER BY idMetrica DESC LIMIT 1`
 
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

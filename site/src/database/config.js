@@ -5,7 +5,7 @@ var sql = require('mssql');
 var sqlServerConfig = {
     user: "admCeres",
     password: "#Gfgrupo5",
-    database: "bdCeres",
+    database: "projeto-ceres",
     server: "projeto-ceres.database.windows.net",
     
     pool: {

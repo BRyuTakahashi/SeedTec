@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+//process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+=======
 // process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+>>>>>>> f4d4e70f6ff004774021e6892d9ddd76ff698da2
 process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require("express");

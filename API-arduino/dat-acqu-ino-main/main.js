@@ -16,7 +16,7 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
 // API conectada ao banco de dados local, MySQL Workbench - 'desenvolvimento'
-const AMBIENTE = 'desenvolvimento';
+const AMBIENTE = 'producao';
 
 const serial = async (
     valoresDht11Umidade,

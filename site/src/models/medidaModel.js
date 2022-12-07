@@ -36,8 +36,8 @@ function buscarMedidasEmTempoReal(idArmazem) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
+        temperatura as temperatura, 
+        umidade as umidade,  
                         CONVERT(varchar, horario, 108) as horario_grafico, 
                         fkArmazem 
                         from metrica where fkArmazem = ${idArmazem} 

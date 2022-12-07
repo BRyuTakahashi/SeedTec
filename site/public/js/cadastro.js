@@ -130,8 +130,9 @@ function cadastrar() {
         if (resposta.ok) {
             resposta.json()
                 .then(function (resposta) {
+                    console.log(resposta)
 
-                    cliente.fkEndereco = resposta[0][0].idEndereco
+                    cliente.fkEndereco = resposta[0].idEndereco
 
                     fetch("/usuarios/cadastrarCliente", {
                         method: "POST",

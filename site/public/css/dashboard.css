@@ -245,7 +245,7 @@ aside .sidebar .message-count {
 
 #logout {
     position: relative;
-    top: 15rem;
+    top: 18rem;
 }
 
 /*========== Conteudo Principal =============== */
@@ -353,19 +353,19 @@ main .stock-bnt {
 }
 
 .atencao {
-    background: #d8e750;
+    background: var(--color-warning);
 }
 
 .atencao:hover {
-    background: #bfcc48;
+    background: #ccca48;
 }
 
 .perigo {
-    background: #ff4800;
+    background: var(--color-danger);
 }
 
 .perigo:hover {
-    background: #f04501;
+    background: #ff1333;
 }
 
 .ideal:hover {
@@ -389,6 +389,14 @@ main .insights>div {
     transition: all 300ms ease;
 }
 
+.graph{
+    display: flex;
+    flex-direction: column;
+}
+
+canvas{
+    width: 100%;
+}
 
 .graph h1 {
     font-size: 20px;

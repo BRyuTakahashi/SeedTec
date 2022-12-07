@@ -191,7 +191,7 @@ function plotarGraficoSaca(resposta) {
 
     for (var i =  0; i < resposta.length; i++){
         label.push(resposta[i].nome)
-        data.push(resposta[i].sacas)
+        data.push(resposta[i].Sacas)
     }
 
     console.log(label, data)
@@ -253,6 +253,11 @@ function atualizarGrafico(idArmazem, data, lineChart) {
                 } else {
                     temperatura = novoRegistro[0].temperatura
                     umidade = novoRegistro[0].umidade
+
+                    // Simular condições
+                    // temperatura -= 1 + Math.random() * 20
+                    // umidade -= 45
+
                     var box = document.querySelectorAll(".box")
 
                     if (temperatura > 20) {
@@ -289,18 +294,20 @@ function atualizarGrafico(idArmazem, data, lineChart) {
                         statusUmi.innerHTML = "CRÍTICO"
                     }
 
-                    kpiTemp.innerHTML = temperatura + "ºC"
-                    kpiUmi.innerHTML = umidade + "%"
+                   
+
+                    kpiTemp.innerHTML = temperatura.toFixed(1) + "ºC"
+                    kpiUmi.innerHTML = umidade.toFixed(1) + "%"
 
                     // tirando e colocando valores no gráfico
                     data.labels.shift(); // apagar o primeiro
                     data.labels.push(novoRegistro[0].horario_grafico); // incluir um novo momento
 
-                    data.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    data.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                    data.datasets[1].data.shift();  // apagar o primeiro de umidade
+                    data.datasets[1].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-                    data.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    data.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                    data.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                    data.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                     lineChart.update();
                 }

@@ -6,8 +6,9 @@ function buscarUltimasMedidas(idArmazem, limite_linhas) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
+        (SELECT MAX(Temperatura) FROM metrica) AS tempMax, (SELECT MAX(Umidade) FROM metrica) AS umiMax,
+        temperatura as temperatura, 
+        umidade as umidade,  
                         horario,
                         FORMAT(horario, 'HH:mm:ss') as horario_grafico
                     from metrica

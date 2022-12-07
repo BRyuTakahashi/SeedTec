@@ -16,7 +16,7 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
 // API conectada ao banco de dados local, MySQL Workbench - 'desenvolvimento'
-const AMBIENTE = 'desenvolvimento';
+const AMBIENTE = 'producao';
 
 const serial = async (
     valoresDht11Umidade,
@@ -32,7 +32,7 @@ const serial = async (
                 // CREDENCIAIS DO BANCO LOCAL - MYSQL WORKBENCH
                 host: 'localhost',
                 user: 'root',
-                password: 'Duda2@20',
+                password: 'workr00t',
                 database: 'dbCeres'
             }
         ).promise();
@@ -80,7 +80,7 @@ const serial = async (
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
                 // Importante! você deve ter criado o usuário abaixo com os comandos presentes no arquivo
                 // "script-criacao-usuario-sqlserver.sql", presente neste diretório.
-                const connStr = "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
+                const connStr = "Server=projeto-ceres.database.windows.net;Database=bdCeres;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
